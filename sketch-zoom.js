@@ -5,17 +5,17 @@ var x, y, tox, toy;
 var zoom = 0.01; //zoom step per mouse tick
 
 function preload() {
-  img = loadImage("baseball.png");
-  player = loadImage("player.png");
-  jackie = loadImage("jackie.PNG");
-  hank = loadImage("hank-aaron.png");
-  satchel = loadImage("satchel-paige.png");
-  larry = loadImage("larry-doby.png");
-  moses = loadImage("moses-fleetwood-walker.png");
-  frank = loadImage("frank-robinson.png");
-  mookie = loadImage("mookie-betts.png");
-  jeter = loadImage("derek-jeter.png");
-  prince = loadImage("prince-fielder.png");
+  img = loadImage("images/baseball.png");
+  player = loadImage("images/player.png");
+  jackie = loadImage("images/jackie.PNG");
+  hank = loadImage("images/hank-aaron.png");
+  satchel = loadImage("images/satchel-paige.png");
+  larry = loadImage("images/larry-doby.png");
+  moses = loadImage("images/moses-fleetwood-walker.png");
+  frank = loadImage("images/frank-robinson.png");
+  mookie = loadImage("images/mookie-betts.png");
+  jeter = loadImage("images/derek-jeter.png");
+  prince = loadImage("images/prince-fielder.png");
 }
 
 function setup() {
@@ -42,8 +42,8 @@ function draw() {
 
   image(img, x - w / 2, y - h / 2, w, h);
   image(player, mouseX-50, mouseY-50, 100, 100); //moves player image based on cursor position mouseX-50 (moves cursor to right and puts it on img, mouseY-50 moves cursor down img, if no #s, then default cursor is up and to left of img) - last 2 numbers adjusts size (w,h) - https://editor.p5js.org/mellerbr/sketches/Jhz5uwM5
-  image(jackie, x - 130, y + 130, 100, 100); // batter
-  image(hank, x - 220, y - 130, 100, 100); //runner
+  image(jackie, x+240, y+250, 100, 100); // batter
+  image(hank, x+140, y+10, 100, 100); //runner
   image(satchel, x-25, y - 40, 100, 100); //pitcher
   image(larry, x / 2.5, y / 26, 100, 100); //center-fielder
   image(moses, x - 45, y + 185, 65, 65); //catcher
