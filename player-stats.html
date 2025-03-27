@@ -6,6 +6,10 @@
     <title>Player Stats</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
+      body{
+        background: rgba(243,226,199,1);
+      }
+      
       #container{
         padding: 1cm;
       }
@@ -215,7 +219,7 @@
             .attr("cx", d => x(+d[selectedStat]))
             .attr("cy", d => y(d.name))
             .attr("r", 6)
-            .style("fill", "#AF2C2B")
+            .style("fill", "#B23124")
             .attr("stroke", "#222224");
         })
       }
