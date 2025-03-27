@@ -10,11 +10,15 @@
         padding: 1cm;
       }
       h2{
-          margin-left: 130px;
+          margin-left: 400px;
+      }
+
+      .button-move{
+        margin-left: 110px;
       }
       button{
-        color: #ffde00;
-        background: #3b4cca;
+        color: #F6BA20;
+        background: #39257F;
         font-weight: bold;
         margin: 5px;
         margin-left: 50px;
@@ -22,8 +26,8 @@
         padding: 6px;
       }
       button:hover{
-        color: whitesmoke;
-        background: indigo;
+        color: #39257F;
+        background: #F6BA20;
         
       }
 
@@ -51,15 +55,17 @@
     </style>
   </head>
   <body>
-    <h2 style="color: #cc0000">A comparison of Negro League playing stats</h2>
+    <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
     <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
-    <button onclick="update('ab')">At Bats</button>
-    <button onclick="update('r')">Runs</button>
-    <button onclick="update('h')">Hits</button>
-    <button onclick="update('hr')">Home Runs</button>
-    <button onclick="update('rbi')">Runs Batted In</button>
-    <button onclick="update('sb')">Stolen Bases</button>
-    <button onclick="update('avg')">Batting Average</button>
+    <div class="button-move">
+      <button onclick="update('ab')">At Bats</button>
+      <button onclick="update('r')">Runs</button>
+      <button onclick="update('h')">Hits</button>
+      <button onclick="update('hr')">Home Runs</button>
+      <button onclick="update('rbi')">Runs Batted In</button>
+      <button onclick="update('sb')">Stolen Bases</button>
+      <button onclick="update('avg')">Batting Average</button>
+    </div>
     <div id="container"></div>
     <script>
 
@@ -209,7 +215,7 @@
             .attr("cx", d => x(+d[selectedStat]))
             .attr("cy", d => y(d.name))
             .attr("r", 6)
-            .style("fill", "#ee1515")
+            .style("fill", "#AF2C2B")
             .attr("stroke", "#222224");
         })
       }
