@@ -82,6 +82,14 @@
         .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+        // CREATE TOOLTIP
+        // TOOLTIP - REQUIRES 3 FUNCTIONS
+        const tooltip = d3.select("#container")
+            .append("div")
+            .attr("class", "tooltip") //class for styling in CSS
+            .style("opacity", 0); //opacity set to 0 is invisible until used
+      
+
       // INITIALIZE X-AXIS
       const x = d3.scaleLinear()
         .range([0, width])
@@ -144,12 +152,6 @@
           .selectAll("text")
           .attr("fill", "black");
 
-          //CREATE TOOLTIP
-          //TOOLTIP - REQUIRES 3 FUNCTIONS
-          const tooltip = d3.select("#container")
-            .append("div")
-            .attr("class", "tooltip") //class for styling in CSS
-            .style("opacity", 0); //opacity set to 0 is invisible until used
 
           //1ST TOOLTIP FUNCTION - MOUSEOVER
           const mouseover = function (event, d) {  //listen for events being triggered on done elements
@@ -203,23 +205,23 @@
             .enter()
             .append("circle")
             .merge(u)
+            .on("mouseover", mouseover) //NEW: .on() - this is event
+            .on("mousemove", mousemove) //tells it what to do 
+            .on("mouseout", mouseout)
             .transition()
             .duration(1000)
             .attr("cx", d => x(+d[selectedStat]))
             .attr("cy", d => y(d.name))
             .attr("r", 6)
             .style("fill", "#ee1515")
-            .attr("stroke", "#222224")
-            .on("mouseover", mouseover) //NEW: .on() - this is event
-            .on("mousemove", mousemove) //tells it what to do 
-            .on("mouseout", mouseout);
+            .attr("stroke", "#222224");
           
 
         })
       }
 
       // INITIALIZE PLOT
-      update('total')
+      update('name')
 
     </script>
   </body>
