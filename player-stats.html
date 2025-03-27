@@ -6,10 +6,6 @@
     <title>Lollipop with Input</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-      /* .svg{
-        width: 900px;
-        
-      } */
       #container{
         padding: 1cm;
       }
@@ -58,7 +54,7 @@
     <h2 style="color: #cc0000">A comparison of Negro League playing stats</h2>
     <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
     <button onclick="update('ab')">At Bats</button>
-    <button onclick="update('r')">Runs Scored or Allowed</button>
+    <button onclick="update('r')">Runs</button>
     <button onclick="update('h')">Hits</button>
     <button onclick="update('hr')">Home Runs</button>
     <button onclick="update('rbi')">Runs Batted In</button>
@@ -133,7 +129,6 @@
 
           // X-AXIS
           x.domain([0, d3.max(data, d => +d[selectedStat])])
-          //x.domain(data.map(d => d.name))
           xAxis
             .transition()
             .duration(1000)
