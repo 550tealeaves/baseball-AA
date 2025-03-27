@@ -4,19 +4,19 @@ var x, y, tox, toy;
 //var zoom = .005; //zoom step per mouse tick 
 
 function preload() {
-    field = loadImage("field.png");
-    player = loadImage("player.png");
-    jackie = loadImage("jackie.PNG");
-    hank = loadImage("hank-aaron.png");
-    satchel = loadImage("satchel-paige.png");
-    larry = loadImage("larry-doby.png");
-    moses = loadImage("moses-fleetwood-walker.png");
-    frank = loadImage("frank-robinson.png");
-    mookie = loadImage("mookie-betts.png");
-    jeter = loadImage("derek-jeter.png");
-    prince = loadImage("prince-fielder.png");
-    randolph = loadImage("willie-randolph.png");
-    bonilla = loadImage("bobby-bonilla.png");
+    field = loadImage("images/field.png");
+    player = loadImage("images/player.png");
+    jackie = loadImage("images/jackie.PNG");
+    hank = loadImage("images/hank-aaron.png");
+    satchel = loadImage("images/satchel-paige.png");
+    larry = loadImage("images/larry-doby.png");
+    moses = loadImage("images/moses-fleetwood-walker.png");
+    frank = loadImage("images/frank-robinson.png");
+    mookie = loadImage("images/mookie-betts.png");
+    jeter = loadImage("images/derek-jeter.png");
+    prince = loadImage("images/prince-fielder.png");
+    randolph = loadImage("images/willie-randolph.png");
+    bonilla = loadImage("images/bobby-bonilla.png");
 }
 
 //code from here: https://gist.github.com/companje/5478fff07a18a1f4806df4cf77ae1048
