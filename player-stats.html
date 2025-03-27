@@ -125,7 +125,8 @@
                 });
           
           //SORT THE DATA - descending  
-          data.sort((b, a) => a.name - b.name);
+          data.sort((a, b) => b.name - a.name);//not working
+          //data.sort(d3.ascending) //doesn't work
 
           // X-AXIS
           x.domain([0, d3.max(data, d => +d[selectedStat])])
