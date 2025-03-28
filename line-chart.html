@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player demo</title>
+    <title>Player</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Jacques+Francois+Shadow&family=Jomhuria&family=Nunito:wght@300&family=Pattaya&family=Yuji+Mai&display=swap');
@@ -88,14 +88,14 @@
 
 
             //FORMAT THE DATA - create a loop
-            data.forEach(d=> {
-                //Use unary operator (+) to convert the strings to numbers
-                d.Year = +d.Year;
-                d.White = +d.White; 
-                d.Black = +d.Black;
-                d.Latino = +d.Latino;
-                d.Asian = +d.Asian;
-            });
+            // data.forEach(d=> {
+            //     //Use unary operator (+) to convert the strings to numbers
+            //     d.Year = +d.Year;
+            //     d.White = +d.White; 
+            //     d.Black = +d.Black;
+            //     d.Latino = +d.Latino;
+            //     d.Asian = +d.Asian;
+            // });
 
             //SCALES WITH TIME
             const xScale = d3.scaleTime() //must use the time scale 
