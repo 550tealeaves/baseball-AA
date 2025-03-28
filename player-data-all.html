@@ -17,6 +17,14 @@
           margin-left: 400px;
       }
 
+      .line-chart, .lollipop{
+        margin-top:200px;
+      }
+
+      .line-chart{
+        margin: 50px;
+      }
+
       .button-move{
         margin-left: 110px;
       }
@@ -59,19 +67,34 @@
     </style>
   </head>
   <body>
-    <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
-    <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
-    
-    <div class="button-move">
-      <button onclick="update('ab')">At Bats</button>
-      <button onclick="update('r')">Runs</button>
-      <button onclick="update('h')">Hits</button>
-      <button onclick="update('hr')">Home Runs</button>
-      <button onclick="update('rbi')">Runs Batted In</button>
-      <button onclick="update('sb')">Stolen Bases</button>
-      <button onclick="update('avg')">Batting Average</button>
+    <div class="timeline">
+      <iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2:2PACX-1vQEc1FHfeCuhFMgphMMIbd3D7mbRxNPj_jgqEh45j9qXWhvZeqs_yzYRsrMAG_BHmdlAXcI6eo4Rkqn&font=Default&lang=en&initial_zoom=2&height=650' width='100%' height='650' webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder='0'></iframe>
     </div>
-    <div id="container"></div>
+    
+    
+    
+    <div class="line-chart">
+      <iframe title="Player demographics from 1947-2023" aria-label="Interactive line chart" id="datawrapper-chart-IzFlO" src="https://datawrapper.dwcdn.net/IzFlO/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="622" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+      </script>
+    </div>
+
+    <div class="lollipop">
+      <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
+      <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
+
+      <div class="button-move">
+        <button onclick="update('ab')">At Bats</button>
+        <button onclick="update('r')">Runs</button>
+        <button onclick="update('h')">Hits</button>
+        <button onclick="update('hr')">Home Runs</button>
+        <button onclick="update('rbi')">Runs Batted In</button>
+        <button onclick="update('sb')">Stolen Bases</button>
+        <button onclick="update('avg')">Batting Average</button>
+      </div>
+      <div id="container"></div>
+
+    </div>
+    
     <script>
 
       // SET DIMENSIONS & MARGINS
