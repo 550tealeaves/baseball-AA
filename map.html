@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negro League Fields</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
+
+    <div id="map"></div>
+
+    <script>
+        const map = L.map('map').setView([35.0, -82.5], 5);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            minZoom: 5,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        //ADD MARKERS
+        const downs = L.marker([30.275713322561643, -97.7090813460537]).addTo(map)
+            .bindPopup('<b>Downs Field</b><br />Opened in 1914, this was the home to Austin Black Senators.');
+
+        const rickwood = L.marker([33.50251653867355, -86.85591986592571]).addTo(map).bindPopup('<b>Rickwood Field</b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons.');
+
+        const jp = L.marker([30.346638181972438, -81.67493029466705]).addTo(map)
+            .bindPopup('<b>J.P. Small Memorial Stadium</b><br />Opened in 1912, this was the home to the Jacksonville Red Caps');
+
+        const league = L.marker([41.511316976152955, -81.64428587626861]).addTo(map).bindPopup('<b>League Park</b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.');
+
+        const hamtramck = L.marker([42.38982447572633, -83.05068935758256]).addTo(map).bindPopup('<b>Hamtramck Stadium</b><br />Opened in 1930, this was home to the Detroit Wolves & the Detroit Stars.')
+
+        const hinchliffe = L.marker([40.91840809015926, -74.1812900582836]).addTo(map).bindPopup('<b>Hinchliffe Stadium</b><br />Opened in 1932, this was home to the NY Black Yankees & the NY Cubans.')
+
+        // const circle = L.circle([51.508, -0.11], {
+        //     color: 'red',
+        //     fillColor: '#f03',
+        //     fillOpacity: 0.5,
+        //     radius: 500
+        // }).addTo(map).bindPopup('I am a circle.');
+
+        // const polygon = L.polygon([
+        //     [51.509, -0.08],
+        //     [51.503, -0.06],
+        //     [51.51, -0.047]
+        // ]).addTo(map).bindPopup('I am a polygon.');
+
+
+        // const popup = L.popup()
+        //     .setLatLng([30.513, -97.09])
+        //     .setContent('I am a standalone popup.')
+        //     .openOn(map);
+
+        function onMapClick(e) {
+            popup
+                .setLatLng(e.latlng)
+                .setContent(`You clicked the map at ${e.latlng.toString()}`)
+                .openOn(map);
+        }
+
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>
