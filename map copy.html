@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negro League Fields</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
+
+    <div id="map">
+    <div class="story" data-point="37.000,-120.652">First story. Click to zoom</div>
+    <div class="story" data-point="35.232,-118.334">Another story. Click to zoom</div>
+    <div class="story" data-point="35.232,-118.334">Another story. Click to zoom</div>
+
+    </div>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // basic map setup. include other options as needed, refer to the docs
+var map = L.map('map');
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            minZoom: 5,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+// bind click event to the story divs, add a marker and zoom to that story's location. Remember to add dot before story as it is classname
+$('.story').on('click', function(){
+    // parse lat and lng from the divs data attribute
+    var latlng = $(this).data().point.split(',');
+    var lat = latlng[0];
+    var lng = latlng[1];
+    var zoom = 10;
+
+    // add a marker
+    var marker = L.marker([lat, lng],{}).addTo(map);
+    // set the view
+    map.setView([lat, lng], zoom);
+})
+    </script>
+</body>
+</html>

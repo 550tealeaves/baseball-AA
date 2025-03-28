@@ -34,6 +34,19 @@
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
 
+
+        //CREATE CUSTOM ICON
+        const stadiumIcon = L.Icon.extend({
+		options: {
+			iconSize:     [38, 95],
+			iconAnchor:   [22, 94],
+			popupAnchor:  [-3, -76]
+		    }
+        });
+
+        const fieldIcon = new stadiumIcon({iconURL:})
+
+
         //ADD MARKERS
         const downs = L.marker([30.275713322561643, -97.7090813460537]).addTo(map)
             .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field</a></b><br />Opened in 1914, this was the home to Austin Black Senators.');
@@ -47,6 +60,8 @@
         const hamtramck = L.marker([42.38982447572633, -83.05068935758256]).addTo(map).bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium</a></b><br />Opened in 1930, this was home to the Detroit Wolves & the Detroit Stars.')
 
         const hinchliffe = L.marker([40.91840809015926, -74.1812900582836]).addTo(map).bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium</a></b><br />Opened in 1932, this was home to the NY Black Yankees & the NY Cubans.')
+
+
 
         // const circle = L.circle([51.508, -0.11], {
         //     color: 'red',
