@@ -13,35 +13,36 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #fefefd;
+            background-color: #eae6e0;
             }
 
         #map {
             position: absolute;
             /* top: 18%; */
-            top: 0;
+            top: 20%;
             bottom: 0;
-            width: 100%;
+            width: 60%;
         }
 
-        /* h2{
+        h2{
             font-family: "Old Standard TT", serif;
             font-weight: 400;
             font-style: normal;
             margin-bottom: 15px;
             text-align: center;
             font-size: 22px;
-        } */
+        }
     </style>
 </head>
 <body>
     
-    <!-- <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2> -->
+    
     <div id="map">
         </div>
 
+        <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished. Today only a few remain.</h2>
     <script>
-        const map = L.map('map').setView([35.0, -87.5], 5);
+        const map = L.map('map').setView([38.0, -87.5], 5);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
