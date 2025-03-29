@@ -64,12 +64,12 @@
 <body>
     
     <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished. Today only a few remain.</h2>
-    <button onclick="panToMarker(0)">Field 1</button>
-    <button onclick="panToMarker(1)">Field 2</button>
-    <button onclick="panToMarker(2)">Field 3</button>
-    <button onclick="panToMarker(3)">Field 4</button>
-    <button onclick="panToMarker(4)">Field 5</button>
-    <button onclick="panToMarker(5)">Field 6</button>
+    <button onclick="flyToMarker(0)">Field 1</button>
+    <button onclick="flyToMarker(1)">Field 2</button>
+    <button onclick="flyToMarker(2)">Field 3</button>
+    <button onclick="flyToMarker(3)">Field 4</button>
+    <button onclick="flyToMarker(4)">Field 5</button>
+    <button onclick="flyToMarker(5)">Field 6</button>
     <div id="map">
         </div>
 
@@ -99,7 +99,7 @@
 
         //CREATE CUSTOM ICON
         var stadiumIcon = L.icon({
-            iconUrl: 'baseball-field.png',
+            iconUrl: 'stadium.png',
             shadowSize:   [50, 64], // size of the shadow
             iconSize:     [38, 50], // size of the icon
             iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
@@ -135,11 +135,11 @@
         ];
 
 
-        // Function to pan to a specific marker
-        function panToMarker(index) {
+        // Function to fly to a specific marker
+        function flyToMarker(index) {
             var marker = markers[index];
             if (marker) {
-                map.panTo(marker.getLatLng());
+                map.flyTo(marker.getLatLng(), 19, {duration: 6.5}); //add zoom time as duration
                 marker.openPopup(); // Optionally open popup
             }
         }

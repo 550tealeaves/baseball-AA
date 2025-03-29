@@ -21,9 +21,9 @@
     <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
 
     <div id="map"></div>
-    <button onclick="panToMarker(0)">Marker 1</button>
-    <button onclick="panToMarker(1)">Marker 2</button>
-    <button onclick="panToMarker(2)">Marker 3</button>
+    <!-- <button onclick="flyToMarker(0)">Marker 1</button>
+    <button onclick="flyToMarker(1)">Marker 2</button>
+    <button onclick="flyToMarker(2)">Marker 3</button> -->
 
     
 
@@ -44,27 +44,25 @@
             L.marker([51.49, -0.08]).addTo(map).bindPopup("Marker 3")
         ];
 
-        // Function to pan to a specific marker
-        function panToMarker(index) {
-            var marker = markers[index];
-            if (marker) {
-                map.panTo(marker.getLatLng());
-                marker.openPopup(); // Optionally open popup
-            }
+        //This code cycle through the markers (need to add the stop mechanism)
+        //This code would be good for showing barnstorming or maybe Fowler's travels
+        let currentIndex = 0;
+
+
+        function cycleMarkers() {
+            let marker = markers[currentIndex];
+            map.flyTo(marker.getLatLng(), 17, { duration: 2 }); // Fly to marker
+            marker.openPopup(); // Open popup
+
+            // Move to next marker after a delay
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % markers.length; // Loop back to first marker
+                cycleMarkers();
+            }, 4000); // Delay before next transition
         }
 
-
-
-
-            // // Function to pan to a new location
-            // function panToLocation(lat, lng) {
-            //     map.panTo(new L.LatLng(lat, lng));
-            // }
-
-            // // Example: Move to New York City after 3 seconds
-            // setTimeout(() => {
-            //     panToLocation(40.7128, -74.0060);
-            // }, 12000);
+        // Start cycling through markers
+        cycleMarkers();
     </script>
 </body>
 </html>
