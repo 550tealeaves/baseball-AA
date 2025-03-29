@@ -6,32 +6,42 @@
     <title>Negro League Fields</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
+            background-color: #fefefd;
             }
 
         #map {
             position: absolute;
+            /* top: 18%; */
             top: 0;
             bottom: 0;
             width: 100%;
         }
 
-        h2{
-            margin-bottom: 30px;
-        }
+        /* h2{
+            font-family: "Old Standard TT", serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 22px;
+        } */
     </style>
 </head>
 <body>
     
-    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
+    <!-- <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2> -->
     <div id="map">
         </div>
 
     <script>
-        const map = L.map('map').setView([35.0, -82.5], 5);
+        const map = L.map('map').setView([35.0, -87.5], 5);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -71,16 +81,21 @@
         //ADD MARKERS
         const downs = L.marker([30.275713322561643, -97.7090813460537], {icon:stadiumIcon}).addTo(map)
             .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field</a></b><br />Opened in 1914, this was the home to Austin Black Senators.');
-        const rickwood = L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map).bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons.');
+
+        const rickwood = L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons.');
 
         const jp = L.marker([30.346638181972438, -81.67493029466705], {icon: stadiumIcon}).addTo(map)
             .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park</a></b><br />Opened in 1912, this was the home to the Jacksonville Red Caps');
 
-        const league = L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map).bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.');
+        const league = L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.');
 
-        const hamtramck = L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map).bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium</a></b><br />Opened in 1930, this was home to the Detroit Wolves & the Detroit Stars.')
+        const hamtramck = L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium</a></b><br />Opened in 1930, this was home to the Detroit Wolves & the Detroit Stars.')
 
-        const hinchliffe = L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map).bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium</a></b><br />Opened in 1932, this was home to the NY Black Yankees & the NY Cubans.')
+        const hinchliffe = L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium</a></b><br />Opened in 1932, this was home to the NY Black Yankees & the NY Cubans.')
 
 
 
