@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            }
+
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
+
+    <div id="map"></div>
+    <button onclick="panToMarker(0)">Marker 1</button>
+    <button onclick="panToMarker(1)">Marker 2</button>
+    <button onclick="panToMarker(2)">Marker 3</button>
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Define markers with coordinates
+        var markers = [
+            L.marker([51.5, -0.09]).addTo(map).bindPopup("Marker 1"),
+            L.marker([51.51, -0.1]).addTo(map).bindPopup("Marker 2"),
+            L.marker([51.49, -0.08]).addTo(map).bindPopup("Marker 3")
+        ];
+
+        // Function to pan to a specific marker
+        function panToMarker(index) {
+            var marker = markers[index];
+            if (marker) {
+                map.panTo(marker.getLatLng());
+                marker.openPopup(); // Optionally open popup
+            }
+        }
+
+
+
+
+            // // Function to pan to a new location
+            // function panToLocation(lat, lng) {
+            //     map.panTo(new L.LatLng(lat, lng));
+            // }
+
+            // // Example: Move to New York City after 3 seconds
+            // setTimeout(() => {
+            //     panToLocation(40.7128, -74.0060);
+            // }, 12000);
+    </script>
+</body>
+</html>
