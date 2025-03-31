@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-about.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             margin: 0;
@@ -21,7 +23,7 @@
             /* top: 18%; */
             top: 20%;
             bottom: 0;
-            width: 60%;
+            width: 65%;
         }
 
         h2{
@@ -38,8 +40,8 @@
             color: #fff;
             border:none; 
             border-radius:10px; 
-            margin-right: 35px;
-            margin-left: 15px;
+            margin-right: 25px;
+            margin-left: 10px;
             margin-bottom: 50px;
             min-height:20px; 
             min-width: 60px;
@@ -64,14 +66,16 @@
 <body>
     
     <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished. Today only a few remain.</h2>
-    <button onclick="flyToMarker(0)">Field 1</button>
-    <button onclick="flyToMarker(1)">Field 2</button>
-    <button onclick="flyToMarker(2)">Field 3</button>
-    <button onclick="flyToMarker(3)">Field 4</button>
-    <button onclick="flyToMarker(4)">Field 5</button>
-    <button onclick="flyToMarker(5)">Field 6</button>
+    <button onclick="flyToMarker(0)">Downs Field</button>
+    <button onclick="flyToMarker(1)">Rickwood Field</button>
+    <button onclick="flyToMarker(2)">J.P. Small Park</button>
+    <button onclick="flyToMarker(3)">League Park</button>
+    <button onclick="flyToMarker(4)">Hamtramck Stadium</button>
+    <button onclick="flyToMarker(5)">Hinchliffe Stadium</button>
     <div id="map">
-        </div>
+        </div>  
+    
+    
 
         
     <script>
@@ -116,22 +120,22 @@
 
         var markers = [
             L.marker([30.275713322561643, -97.7090813460537], {icon:stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field</a></b><br />Opened in 1914, this was the home to Austin Black Senators.'),
+            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field (1914)</a></b><br />This Austin, TX ballpark was the home to Austin Black Senators from 1927-1938.'),
 
             L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons.'),
+            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field (1910)</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons, featuring legendary players Satchel Paige and Willie Mays.'),
 
             L.marker([30.346638181972438, -81.67493029466705], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park</a></b><br />Opened in 1912, this was the home to the Jacksonville Red Caps'),
+            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park (1912)</a></b><br />Opened in 1912, this was the home to the Jacksonville Red Caps'),
 
             L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.'),
+            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park (1910)</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.'),
 
             L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium</a></b><br />Opened in 1930, this was home to the Detroit Wolves & the Detroit Stars.'),
+            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium (1930)</a></b><br />Opened in 1930, this stadium in Hamtramck, MI was formerly home to the Detroit Wolves & the Detroit Stars.'),
 
             L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium</a></b><br />Opened in 1932, this was home to the NY Black Yankees & the NY Cubans.')
+            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium (1932)</a></b><br />Located in Paterson, NJ, this 1932 stadium was home to the NY Black Yankees & the NY Cubans.')
         ];
 
 
@@ -139,30 +143,10 @@
         function flyToMarker(index) {
             var marker = markers[index];
             if (marker) {
-                map.flyTo(marker.getLatLng(), 19, {duration: 6.5}); //add zoom time as duration
+                map.flyTo(marker.getLatLng(), 19, {duration: 4}); //add zoom time as duration
                 marker.openPopup(); // Optionally open popup
             }
         }
-         
-        // const circle = L.circle([51.508, -0.11], {
-        //     color: 'red',
-        //     fillColor: '#f03',
-        //     fillOpacity: 0.5,
-        //     radius: 500
-        // }).addTo(map).bindPopup('I am a circle.');
-
-        // const polygon = L.polygon([
-        //     [51.509, -0.08],
-        //     [51.503, -0.06],
-        //     [51.51, -0.047]
-        // ]).addTo(map).bindPopup('I am a polygon.');
-
-
-        // const popup = L.popup()
-        //     .setLatLng([35.513, -85.09])
-        //     .setContent('Click on a marker to learn more about the site.')
-        //     .openOn(map);
-
         map.on('click', onMapClick);
     </script>
 </body>
