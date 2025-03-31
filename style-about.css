@@ -4,7 +4,7 @@
     --primaryLight: #ffba43;
     --secondary: #ffba43;
     --secondaryLight: #ffba43;
-    --headerColor: #15af27;
+    --headerColor: #1a1a1a;
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #fafbfc;
     /* 13px - 16px */
@@ -14,10 +14,7 @@
     --bodyFontSize: 1rem;
     /* 60px - 100px top and bottom */
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-    
 }
-
-
 
 body {
     margin: 0;
@@ -42,13 +39,12 @@ body {
 
 .cs-title {
     font-size: var(--headerFontSize);
-    font-family: "Satisfy", cursive;
     font-weight: 900;
     line-height: 1.2em;
     text-align: inherit;
     max-width: 43.75rem;
     margin: 0 0 1rem 0;
-    color: red;
+    color: var(--headerColor);
     position: relative;
 }
 
@@ -61,7 +57,7 @@ body {
     margin: 0;
     color: var(--bodyTextColor);
 }
-
+                            
 
 /*-- -------------------------- -->
 <---     Mobile Navigation      -->
@@ -595,9 +591,7 @@ body {
       width: 100%;
     }
   }
-                                  
-
-
+      
 
 /*Responsiveness*/
 
