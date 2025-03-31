@@ -51,7 +51,7 @@ body {
 .cs-text {
     font-size: var(--bodyFontSize);
     line-height: 1.5em;
-    text-align: inherit;
+    text-align: center;
     width: 100%;
     max-width: 40.625rem;
     margin: 0;
