@@ -5,17 +5,17 @@ var x, y, tox, toy;
 var zoom = 0.01; //zoom step per mouse tick
 
 function preload() {
-  img = loadImage("images/baseball.png");
-  player = loadImage("images/player.png");
-  jackie = loadImage("images/jackie.PNG");
-  hank = loadImage("images/hank-aaron.png");
-  satchel = loadImage("images/satchel-paige.png");
-  larry = loadImage("images/larry-doby.png");
-  moses = loadImage("images/moses-fleetwood-walker.png");
-  frank = loadImage("images/frank-robinson.png");
-  mookie = loadImage("images/mookie-betts.png");
-  jeter = loadImage("images/derek-jeter.png");
-  prince = loadImage("images/prince-fielder.png");
+  img = loadImage("../images/other/baseball.png");
+  player = loadImage("../images/other/player.png");
+  jackie = loadImage("../images/other/jackie.PNG");
+  hank = loadImage("../images/other/hank-aaron.png");
+  satchel = loadImage("../images/other/satchel-paige.png");
+  larry = loadImage("../images/other/larry-doby.png");
+  moses = loadImage("../images/other/moses-fleetwood-walker.png");
+  frank = loadImage("../images/other/frank-robinson.png");
+  mookie = loadImage("../images/other/mookie-betts.png");
+  jeter = loadImage("../images/other/derek-jeter.png");
+  prince = loadImage("../images/other/prince-fielder.png");
 }
 
 function setup() {
