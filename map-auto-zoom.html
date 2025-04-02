@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map-Auto-Zoom</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            }
+
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished.</h2>
+
+    <div id="map"></div>
+    <!-- <button onclick="flyToMarker(0)">Marker 1</button>
+    <button onclick="flyToMarker(1)">Marker 2</button>
+    <button onclick="flyToMarker(2)">Marker 3</button> -->
+
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([38.0, -87.5], 5);
+
+        // Add OpenStreetMap tile layer
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            minZoom: 2,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+
+
+        //MAP BOUNDARIES
+        //Sets bounds but can click outside bounds and it will drag you back 
+        let westBoundary = L.latLng(55.4752, -108.3087); //higher 2nd # = moves east, lower 2nd # = moves west, higher first # - moves north 
+        let eastBoundary = L.latLng(25.9571, -53.5436);
+        let boundaries = L.latLngBounds(westBoundary, eastBoundary);
+
+
+        //Stop user from dragging map outside of bounds
+        map.setMaxBounds(boundaries);
+        map.on('drag', function () { 
+            map.panInsideBounds(boundaries, {animate: false})
+        });
+
+
+        //CREATE CUSTOM ICON
+        var stadiumIcon = L.icon({
+            iconUrl: 'baseball-field.png',
+            shadowSize:   [50, 64], // size of the shadow
+            iconSize:     [38, 50], // size of the icon
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
+
+        // Define markers with coordinates
+        var markers = [
+        L.marker([30.275713322561643, -97.7090813460537], {icon:stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field (1914)</a></b><br />This Austin, TX ballpark was the home to Austin Black Senators from 1927-1938.'),
+
+            L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field (1910)</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons, featuring legendary players Satchel Paige and Willie Mays.'),
+
+            L.marker([30.346638181972438, -81.67493029466705], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park (1912)</a></b><br />Opened in 1912, this was the home to the Jacksonville Red Caps'),
+
+            L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park (1910)</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.'),
+
+            L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium (1930)</a></b><br />Opened in 1930, this stadium in Hamtramck, MI was formerly home to the Detroit Wolves & the Detroit Stars.'),
+
+            L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium (1932)</a></b><br />Located in Paterson, NJ, this 1932 stadium was home to the NY Black Yankees & the NY Cubans.')
+        ];
+
+        //This code cycle through the markers (need to add the stop mechanism)
+        //This code would be good for showing barnstorming or maybe Fowler's travels
+        let currentIndex = 0;
+
+
+        function cycleMarkers() {
+            let marker = markers[currentIndex];
+            map.flyTo(marker.getLatLng(), 19, { duration: 5 }); // Fly to marker
+            marker.openPopup(); // Open popup
+
+            // Move to next marker after a delay
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % markers.length; // Loop back to first marker
+                cycleMarkers();
+            }, 4000); // Delay before next transition
+        }
+
+        // Start cycling through markers
+        cycleMarkers();
+    </script>
+</body>
+</html>

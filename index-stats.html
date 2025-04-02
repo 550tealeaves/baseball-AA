@@ -1,0 +1,242 @@
+<!-- Code from https://d3-graph-gallery.com/graph/lollipop_button_data_csv.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Player Stats</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      body{
+        background: rgba(243,226,199,1);
+      }
+      
+      #container{
+        padding: 1cm;
+      }
+      h2{
+          margin-left: 400px;
+      }
+
+      .button-move{
+        margin-left: 110px;
+      }
+      button{
+        color: #F6BA20;
+        background: #39257F;
+        font-weight: bold;
+        margin: 5px;
+        margin-left: 50px;
+        border-radius: 30px;
+        padding: 6px;
+      }
+      button:hover{
+        color: #39257F;
+        background: #F6BA20;
+        
+      }
+
+      button:active{
+        color: indigo;
+        background: rosybrown;
+      }
+
+     
+      .tooltip{
+            position: absolute;
+            width: max-content;
+            height: 20px;
+            padding: 4px;    
+            text-align: center; 
+            font-family:sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            background: rgb(189, 217, 249);
+            color: black; 
+            border-radius: 16px;
+          }
+
+      
+    </style>
+  </head>
+  <body>
+    <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
+    <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
+     <p>There was much debate when the MLB decided to incorporate Negro League statistics into the official record book. However, </p>
+    
+    <div class="button-move">
+      <button onclick="update('ab')">At Bats</button>
+      <button onclick="update('r')">Runs</button>
+      <button onclick="update('h')">Hits</button>
+      <button onclick="update('hr')">Home Runs</button>
+      <button onclick="update('rbi')">Runs Batted In</button>
+      <button onclick="update('sb')">Stolen Bases</button>
+      <button onclick="update('avg')">Batting Average</button>
+    </div>
+    <div id="container"></div>
+    <script>
+
+      // SET DIMENSIONS & MARGINS
+      const margin = { top: 30, right: 30, bottom: 70, left: 120 },
+        width = 800,
+        height = 650;
+
+      // CREATE SVG & APPEND TO BODY
+      const svg = d3.select("#container")
+        .append("svg")
+        .attr("class", "svg")
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+        // CREATE TOOLTIP
+        // TOOLTIP - REQUIRES 3 FUNCTIONS
+        const tooltip = d3.select("#container")
+            .append("div")
+            .attr("class", "tooltip") //class for styling in CSS
+            .style("opacity", 0); //opacity set to 0 is invisible until used
+      
+
+      // INITIALIZE X-AXIS
+      const x = d3.scaleLinear()
+        .range([0, width])
+      const xAxis = svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .attr("class", "x-axis")
+        
+
+      // INITIALIZE Y-AXIS
+      const y = d3.scaleBand()
+        .range([height, 0])
+        .padding(1);
+      const yAxis = svg.append("g")
+        .attr("class", "y-axis")
+
+
+
+      // DEFINE FUNCTION UPDATE THAT CREATES/UPDATES THE CHART FOR GIVEN VARIABLE
+      //THIS UPDATE IS CONNECTED TO THE BUTTONS ONCLICK"UPDATE" IN HTML
+      function update(selectedStat) {
+
+        // LOAD/PARSE DATA
+        d3.csv("../data/player-stats.csv").then(data => {
+
+          console.log('data', data);
+
+          //FORMAT THE DATA
+                data.forEach(d => {
+                  d.name = d.name;
+                  d.ab = d.ab;
+                  d.r = d.r;
+                  d.h = +d.h;
+                  d.hr = +d.hr;
+                  d.rbi = +d.rbi;
+                  d.sb = +d.sb;
+                  d.avg = +d.avg;
+                });
+          
+          //SORT THE DATA - descending  
+          data.sort((a, b) => b.name - a.name);//not working
+          //data.sort(d3.ascending) //doesn't work
+
+          // X-AXIS
+          x.domain([0, d3.max(data, d => +d[selectedStat])])
+          xAxis
+            .transition()
+            .duration(1000)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .attr("fill", "black")
+            .attr("font-weight", 500)
+
+
+          // Y-AXIS
+          y.domain(data.map(d => d.name));
+          yAxis
+          .transition()
+          .duration(1000)
+          .call(d3.axisLeft(y))
+          .selectAll("text")
+          .attr("fill", "black");
+
+
+          //1ST TOOLTIP FUNCTION - MOUSEOVER
+          const mouseover = function (event, d) {  //listen for events being triggered on done elements
+            tooltip  //give things to the tooltip
+              .html(d.name + " - " + +d[selectedStat])//can add HTML features, like line break
+              .style("opacity", 1) //opacity set to 1 is visible - mouse hovers & you can see it
+              //Add absolute position of mouse b/c tooltip follows mouse
+              .style("left", (event.pageX + 8) + "px")//mouse x coordinate - higher the # further away tooltip moves
+              .style("top", (event.pageY + 8) + "px");//mouse y coordinate - higher the # further away tooltip moves
+          }
+
+          //2nd TOOLTIP FUNCTION - MOUSEMOVE
+          //Use event & d
+          const mousemove = function (event, d) {
+            tooltip
+              .style("left", (event.pageX + 8) + "px") //higher the # further away tooltip moves
+              .style("top", (event.pageY + 8) + "px"); //higher the # further away tooltip moves
+          }
+
+          //3rd TOOLTIP FUNCTION - MOUSEOUT
+          //Use event & d
+          const mouseout = function (event, d) {
+            tooltip
+              .style("opacity", 0); //invisible when cursor leaves
+          }
+
+
+          // VARIABLE J: MAP DATA TO EXISTING CIRCLE
+          const j = svg.selectAll(".myLine")
+            .data(data)
+          // update lines
+          j
+            .enter()
+            .append("line")
+            .attr("class", "myLine")
+            .merge(j)
+            .transition()
+            .duration(1000)
+            .attr("x1", d => x(+d[selectedStat]))
+            .attr("x2", d => x(0))
+            .attr("y1", d => y(d.name))
+            .attr("y2", d => y(d.name))
+            .attr("stroke", "#718a9b");
+
+
+          // VARIABLE U: MAP DATA TO EXISTING CIRCLE
+          const u = svg.selectAll("circle")
+            .data(data)
+          // UPDATE CIRCLE
+          u
+            .enter()
+            .append("circle")
+            .merge(u)
+            .on("mouseover", mouseover) //NEW: .on() - this is event
+            .on("mousemove", mousemove) //tells it what to do 
+            .on("mouseout", mouseout)
+            .transition()
+            .duration(1000)
+            .attr("cx", d => x(+d[selectedStat]))
+            .attr("cy", d => y(d.name))
+            .attr("r", 6)
+            .style("fill", "#B23124")
+            .attr("stroke", "#222224");
+        })
+      }
+
+      // INITIALIZE PLOT
+      update('name')
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
