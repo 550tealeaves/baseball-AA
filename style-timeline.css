@@ -68,7 +68,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 0.5rem;
+      gap: 1rem;
     }
     #timeline-1517 .cs-picture {
       width: 100%;
@@ -161,7 +161,7 @@
     }
     #timeline-1517 .cs-item-text {
       /* 14px - 16px */
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      font-size: 14px;
       line-height: 1.5em;
       margin: 0.5rem 0 0 0;
       color: var(--bodyTextColor);
