@@ -93,6 +93,10 @@
       gap: 1.5rem;
       position: relative;
     }
+
+    li{
+      font-size: 14px;
+    }
     #timeline-1517 .cs-card-group:before {
       /* white line through the bullets */
       content: "";
