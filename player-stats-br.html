@@ -129,16 +129,16 @@
           //FORMAT THE DATA
                 data.forEach(d => {
                   d.name = d.name;
-                  d.war = d.war;
-                  d.ab = d.ab;
-                  d.h = d.h;
-                  d.hr = d.hr;
-                  d.ba = d.ba;
-                  d.r = d.r;
-                  d.rbi = d.rbi;
-                  d.sb = d.sb;
-                  d.obp = d.obp;
-                  d.ops = d.ops;
+                  d.war = +d.war;
+                  d.ab = +d.ab;
+                  d.h = +d.h;
+                  d.hr = +d.hr;
+                  d.ba = +d.ba;
+                  d.r = +d.r;
+                  d.rbi = +d.rbi;
+                  d.sb = +d.sb;
+                  d.obp = +d.obp;
+                  d.ops = +d.ops;
                 });
           
           //SORT THE DATA - descending  
