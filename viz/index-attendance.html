@@ -4,16 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fan Attendance</title>
+    <link rel="stylesheet" href="../styles/style-about.css">
+    <link rel="stylesheet" href="../styles/style.css">
     <style>
         iframe{
             margin-left: 20%;
             margin-top: 10px;
                 
         }
+
+        /* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.0rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 50px;
+      color: #1a1a1a;
+      min-width: 20%;
+      padding: 5px;
+      background-color: rgb(203, 33, 225);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+      transition: color 0.3s;
+  }
+
+  .cs-button-solid:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #000;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+}
+
+  .cs-button-solid:hover {
+    color: #fff;
+  }
+  .cs-button-solid:hover:before {
+    width: 100%;
+  }
+  }
     </style>
 </head>
 <body>
-    <iframe title="How successful were the Negro Leagues? Let's examine fan attendance at the games." aria-label="Scatter Plot" id="datawrapper-chart-oBQ4R" src="https://datawrapper.dwcdn.net/oBQ4R/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 60% !important; border: none;" height="677" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    <a class="cs-button-solid" aria-label="learn more about our programs" href="../index-about.html">Back</a>
+    <iframe title="How successful were the Negro Leagues? Let's examine fan attendance at the games."aria-label="Scatter Plot" id="datawrapper-chart-oBQ4R" src="https://datawrapper.dwcdn.net/oBQ4R/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 60% !important; border: none;" height="733" data-external="1"></iframe>
+    <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r, i = 0; r = e[i]; i++)if (r.contentWindow === a.source) { var d = a.data["datawrapper-height"][t] + "px"; r.style.height = d } } })) }();
     </script>
 </body>
 </html>
