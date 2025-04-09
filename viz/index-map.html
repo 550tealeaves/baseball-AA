@@ -116,7 +116,7 @@
     </style>
 </head>
 <body>
-    <a class="cs-button-solid" aria-label="learn more about our programs" href="index-about.html">Back</a> 
+    <a class="cs-button-solid" aria-label="learn more about our programs" href="../index-about.html">Back</a> 
     <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished. Today only a few remain.</h2>
     <button onclick="flyToMarker(0)">Downs Field</button>
     <button onclick="flyToMarker(1)">Rickwood Field</button>
@@ -127,10 +127,6 @@
     <div id="map">
         </div>
     
-
-    
-    
-
         
     <script>
         const map = L.map('map').setView([38.0, -87.5], 5);
@@ -174,22 +170,22 @@
 
         var markers = [
             L.marker([30.275713322561643, -97.7090813460537], {icon:stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field (1914)</a></b><br />This Austin, TX ballpark was the home to Austin Black Senators from 1927-1938.'),
+            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field (1914)</a></b><br /> <p>This Austin, TX ballpark was the home to Austin Black Senators from 1927-1938.</p> <br /> <img src="../images/downs-field.jpeg" width="85%" height="auto" />'),
 
             L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field (1910)</a></b><br />Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons, featuring legendary players Satchel Paige and Willie Mays.'),
+            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field (1910)</a></b><br /> <p>Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons, featuring legendary players Satchel Paige and Willie Mays.</p> <br /> <img src="../images/rickwood-field.jpg" width="85%" height="auto" />'),
 
             L.marker([30.346638181972438, -81.67493029466705], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park (1912)</a></b><br />Opened in 1912, this was the home to the Jacksonville Red Caps'),
+            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park (1912)</a></b><br / <p>Opened in 1912, this was the home to the Jacksonville Red Caps</p><br /> <img src="../images/jp-small-park.jpg" width="85%" height="auto" /> '),
 
             L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park (1910)</a></b><br />Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.'),
+            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park (1910)</a></b><br /> <p>Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.Today, only parts of the facade and ticket office exist.</p><br /> <img src="../images/league-park.jpg" width="85%" height="auto" /> '),
 
             L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium (1930)</a></b><br />Opened in 1930, this stadium in Hamtramck, MI was formerly home to the Detroit Wolves & the Detroit Stars.'),
+            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium (1930)</a></b><br /> <p>Opened in 1930, this stadium in Hamtramck, MI was formerly home to the Detroit Wolves & the Detroit Stars.</p><br /> <img src="../images/hamtramck-stadium.jpg" width="85%" height="auto" />'),
 
             L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map)
-            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium (1932)</a></b><br />Located in Paterson, NJ, this 1932 stadium was home to the NY Black Yankees & the NY Cubans.')
+            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium (1932)</a></b><br /><p>Located in Paterson, NJ, this 1932 stadium was home to the NY Black Yankees & the NY Cubans.</p><br /> <img src="../images/hinchliffe-stadium.jpg" width="85%" height="auto" />')
         ];
 
 
