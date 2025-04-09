@@ -7,281 +7,266 @@
     <link rel="stylesheet" href="styles/style.css">
     <style>
         /*-- -------------------------- -->
-<---       Side By Side         -->
+<---    Side by Side Reverse    -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #RTsbs-581 .cs-container,
-    #RTsbsr-581 .cs-container,
-    #RTsbst-581 .cs-container {
-        width: 100%;
-        max-width: 80rem;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* 48px - 64px */
-        gap: clamp(3rem, 7vw, 4rem);
-    }
-    #RTsbs-581 .cs-content,
-    #RTsbsr-581 .cs-content,
-    #RTsbst-581 .cs-content {
-        /* set text aling to left if content needs to be left aligned */
-        text-align: left;
-        width: 100%;
-        max-width: 32.625rem;
-        /* moved section padding to the .cs-content so we can have the cs-picture be full width on mobile without the padding preventing it from doing so */
-        padding: var(--sectionPadding);
-        padding-top: 0;
-        /* prevents padding from affecting width and height */
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        /* centers content horizontally, set to flex-start to left align */
-        align-items: flex-start;
-    }
+  #sbs-r-1892 {
+    width: 100%;
+    padding: var(--sectionPadding);
+    background-color: #faf6f2;
+    display: flex;
+    flex-direction: column;
+    /* aligns content to the left, set to center to centrally align */
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+  #sbs-r-1892 .cs-container {
+    width: 100%;
+    /* changes to 1280px at desktop */
+    max-width: 36.5rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* 48px - 80px */
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+  #sbs-r-1892 .cs-content {
+    /* set text align to left if content needs to be left aligned */
+    text-align: left;
+    width: 100%;
+    max-width: 35.625rem;
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: flex-start;
+    position: relative;
+    z-index: 3;
+  }
+  #sbs-r-1892 .cs-image-group {
+    font-size: min(2.29vw, 0.9rem);
+    width: 39.375em;
+    height: 45.625em;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  #sbs-r-1892 .cs-picture {
+    width: 100%;
+    height: 70%;
+    box-sizing: border-box;
+    background-color: #dab692;
+    overflow: hidden;
+    border: 5px solid var(--primary);
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+  #sbs-r-1892 .cs-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s;
+  }
+  #sbs-r-1892 .cs-graphic {
+    height: auto;
+    position: absolute;
+  }
+  #sbs-r-1892 .cs-brown {
+    width: 15.125em;
+    height: auto;
+    top: 1.625em;
+    left: 0.8125em;
+    z-index: -2;
+  }
+  #sbs-r-1892 .cs-peach {
+    width: 3.625em;
+    height: auto;
+    top: 0.375em;
+    left: 6.8125em;
+  }
+  #sbs-r-1892 .cs-beige {
+    width: 22em;
+    height: auto;
+    top: 4.4375em;
+    left: 1em;
+    z-index: -3;
+  }
+  #sbs-r-1892 .cs-leaf {
+    width: 14.0625em;
+    height: auto;
+    bottom: 0;
+    right: 1em;
+    z-index: 1;
+  }
+  #sbs-r-1892 .cs-lines {
+    width: 11em;
+    height: auto;
+    bottom: 0;
+    right: 0;
+  }
+  #sbs-r-1892 .cs-info {
+    width: 50%;
+    max-width: 19.0625rem;
+    padding: 6.25em 2.5em;
+    background-color: var(--primary);
+    border-radius: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  #sbs-r-1892 .cs-info-text {
+    /* 14px - 20px */
+    font-size: clamp(0.875rem, 3.5vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.6em;
+    text-align: center;
+    max-width: 13.9375em;
+    margin: 0;
+    color: var(--bodyTextColorWhite);
+  }
+  #sbs-r-1892 .cs-bold {
+    /* 16px - 24x */
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.2em;
+    margin: 0 0 0.25rem;
+    color: var(--headerColor);
+    display: block;
+  }
+  #sbs-r-1892 .cs-text-large {
+    font-size: 1.25rem;
+    line-height: 1.5em;
+    margin: 0 0 0.75rem;
+    color: var(--headerColor);
+  }
+  #sbs-r-1892 .cs-text {
+    margin-bottom: 0.75rem;
+  }
+  #sbs-r-1892 .cs-text:last-of-type {
+    margin-bottom: 2rem;
+  }
+  #sbs-r-1892 .cs-button-solid {
+    font-size: 1rem;
+    font-weight: 700;
+    /* 46px - 56px */
+    line-height: clamp(2.875em, 5.5vw, 3.5em);
+    text-align: center;
+    text-decoration: none;
+    min-width: 9.375rem;
+    margin: 0;
+    /* prevents padding from adding to the width */
+    box-sizing: border-box;
+    padding: 0 1.5rem;
+    background-color: var(--secondary);
+    overflow: hidden;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+  }
+  #sbs-r-1892 .cs-button-solid:before {
+    content: "";
+    width: 0;
+    height: 100%;
+    background: #000;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.3s;
+  }
+  #sbs-r-1892 .cs-button-solid:hover {
+    color: #fff;
+  }
+  #sbs-r-1892 .cs-button-solid:hover:before {
+    width: 100%;
+  }
 
-    #RTsbs-581 .cs-text,
-    #RTsbsr-581 .cs-text,
-    #RTsbst-581 .cs-text {
-        margin-bottom: 1rem;
-    }
-    #RTsbs-581 .cs-text:last-of-type,
-    #RTsbsr-581 .cs-text:last-of-type,
-    #RTsbst-581 .cs-text:last-of-type {
-        margin-bottom: 2rem;
-    }
-    #RTsbs-581 .cs-button-solid,
-    #RTsbsr-581 .cs-button-solid,
-    #RTsbst-581 .cs-button-solid {
-        font-size: 1rem;
-        /* 46px - 56px */
-        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-        text-decoration: none;
-        font-weight: 700;
-        text-align: center;
-        margin: 0;
-        color: #fff;
-        min-width: 9.375rem;
-        padding: 0 1.5rem;
-        background-color: var(--primary);
-        border-radius: 0.25rem;
-        display: inline-block;
-        position: relative;
-        z-index: 1;
-        /* prevents padding from adding to the width */
-        box-sizing: border-box;
-    }
-    #RTsbs-581 .cs-button-solid:before,
-    #RTsbsr-581 .cs-button-solid:before,
-    #RTsbst-581 .cs-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: #000;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        border-radius: 0.25rem;
-        transition: width 0.3s;
-    }
-    #RTsbs-581 .cs-button-solid:hover:before,
-    #RTsbsr-581 .cs-button-solid:hover:before,
-    #RTsbst-581 .cs-button-solid:hover:before {
-        width: 100%;
-    }
-    #RTsbs-581 .cs-picture,
-    #RTsbsr-581 .cs-picture,
-    #RTsbst-581 .cs-picture {
-        display: block;
-        position: relative;
-        width: 100%;
-        height: 18.75rem;
-    }
-    #RTsbs-581 .cs-picture img,
-    #RTsbsr-581 .cs-picture img,
-    #RTsbst-581 .cs-picture img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
+  footer a{
+    color: yellow;
+  }
+  footer a:hover{
+    color: white;
+  }
 }
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #RTsbs-581,
-    #RTsbsr-581,
-    #RTsbst-581 {
-        padding: var(--sectionPadding);
-    }
-    #RTsbs-581 .cs-container,
-    #RTsbsr-581 .cs-container,
-    #RTsbst-581 .cs-container {
-        flex-direction: row;
-        justify-content: flex-start;
-        /* 60px - 128px */
-        gap: clamp(3.75rem, 10vw, 8rem);
-    }
-    #RTsbs-581 .cs-content,
-    #RTsbsr-581 .cs-content,
-    #RTsbst-581 .cs-content {
-        width: 53%;
-        /* reset the padding, add the section padding back to the section container */
-        padding: 0;
-    }
-    #RTsbs-581 .cs-picture,
-    #RTsbsr-581 .cs-picture,
-    #RTsbst-581 .cs-picture {
-        width: 47vw;
-        max-width: 30.875rem;
-        /* 518px - 700px */
-        height: clamp(32.375rem, 63vw, 43.75rem);
-        /* 16px - 28px, added margin left and bottom to cs-picture so it pushes away by the same amount the yellow box element overlaps it left and bottom. This maintains consistent spacing left and bottom */
-        margin: 0 0 clamp(1rem, 2.4vw, 1.75rem) clamp(1rem, 2.4vw, 1.75rem);
-        position: relative;
-    }
-    #RTsbs-581 .cs-picture:before,
-    #RTsbsr-581 .cs-picture:before,
-    #RTsbst-581 .cs-picture:before {
-        /* yellow box */
-        content: "";
-        width: 50%;
-        height: 60%;
-        background: var(--secondary);
-        opacity: 1;
-        display: block;
-        position: absolute;
-        /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-        bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-        left: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-    }
+/* Small Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+  #sbs-r-1892 .cs-container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  #sbs-r-1892 .cs-content {
+    /* 48px - 64px */
+    padding: clamp(3rem, 5vw, 4rem) 0;
+  }
+  #sbs-r-1892 .cs-image-group {
+    font-size: min(1.27vw, 1rem);
+    min-height: 45.625em;
+    height: auto;
+    flex: none;
+    /* sends it to the right in the 2nd position */
+    order: 2;
+  }
+  #sbs-r-1892 .cs-picture {
+    height: 93.150685%;
+  }
 }
-
-/*-- -------------------------- -->
-<---    Side By Side Reverse    -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #RTsbsr-581 {
-        background-color: #f7f7f7;
-    }
-}
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-    #RTsbsr-581 .cs-container {
-        justify-content: flex-end;
-    }
-    #RTsbsr-581 .cs-content {
-        /* sends it to the left in the first position */
-        order: -1;
-    }
-    #RTsbsr-581 .cs-picture {
-        /* 16px - 28px, added margin left and bottom to cs-picture so it pushes away by the same amount the yellow box element overlaps it left and bottom. This maintains consistent spacing left and bottom */
-        margin: 0 clamp(1rem, 2.4vw, 1.75rem) clamp(1rem, 2.4vw, 1.75rem) 0;
-    }
-    #RTsbsr-581 .cs-picture:before {
-        /* yellow box */
-        content: "";
-        width: 50%;
-        height: 60%;
-        background: var(--secondary);
-        opacity: 1;
-        display: block;
-        position: absolute;
-        left: auto;
-        /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-        bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-        right: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-    }
-}
-
                                 
     </style>
 </head>
 <body>
     <!-- ============================================ -->
-<!--                 Side By Side                 -->
+<!--             Side by Side Reverse             -->
 <!-- ============================================ -->
 
-<section id="RTsbs-581">
+<section id="sbs-r-1892">
     <div class="cs-container">
-        <picture class="cs-picture">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <!--Tablet and above Image-->
-            <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg" alt="room" width="494" height="700">
-        </picture>
-        <div class="cs-content">
-            <span class="cs-topper">What We Do</span>
-            <h2 class="cs-title">House Painting Contractors For Oak Harbor</h2>
-            <p class="cs-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            </p>
-            <p class="cs-text">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <a href="" class="cs-button-solid">Get Free Quote</a>
+        <div class="cs-image-group">
+            <picture class="cs-picture">
+                <!--Mobile Image-->
+                <source media="(max-width: 600px)" srcset="images/we-are-the-ship.webp">
+                <!--Tablet and above Image-->
+                <source media="(min-width: 601px)" srcset="images/we-are-the-ship.webp">
+                <img loading="lazy" decoding="async" src="images/we-are-the-ship.webp" alt="100 year celebration of Negro Leagues" width="324" height="467">
+            </picture>
+            <div>
+              <footer><cite><a href="https://shop.heinzhistorycenter.org/products/we-are-the-ship-the-story-of-negro-league-baseball" target="_blank">Courtesy</a></cite></footer>
+
+            </div>
         </div>
-    </div>
-</section>
-                                
-<!-- ============================================ -->
-<!--             Side By Side Reverse             -->
-<!-- ============================================ -->
-
-<section id="RTsbsr-581">
-    <div class="cs-container">
-        <picture class="cs-picture">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <!--Tablet and above Image-->
-            <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg" alt="room" width="494" height="700">
-        </picture>
         <div class="cs-content">
-            <span class="cs-topper">What We Do</span>
-            <h2 class="cs-title">House Painting Contractors For Oak Harbor</h2>
-            <p class="cs-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            <div class="cs-flex">
+                <span class="cs-topper">Summary</span>
+                <h2 class="cs-title">What was the long-term impact of the end of the Negro Leagues?</h2>
+            </div>
+            <p class="cs-text-large">
+                Stitch Skin Dermatology & Aesthetics is a California-based professional corp start-up that is redefining the way dermatology and medical aesthetics is practiced and delivered.
             </p>
             <p class="cs-text">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <a href="" class="cs-button-solid">Get Free Quote</a>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================ -->
-<!--             Side By Side Reverse             -->
-<!-- ============================================ -->
-
-<section id="RTsbst-581">
-    <div class="cs-container">
-        <picture class="cs-picture">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <!--Tablet and above Image-->
-            <source media="(min-width: 601px)" srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/SideBySide/room.jpg" alt="room" width="494" height="700">
-        </picture>
-        <div class="cs-content">
-            <span class="cs-topper">What We Do</span>
-            <h2 class="cs-title">House Painting Contractors For Oak Harbor</h2>
-            <p class="cs-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                We are seeing a new crop of medical practices emerge that are reimagining the patient's experience with traditional healthcare (e.g. One Medical for Primary Care, Forward for Preventative Care, KindBody for Fertility, Tia for Women's Health), however we can't say the same for Dermatology and Medical Aesthetics.
             </p>
             <p class="cs-text">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                Our objective with Stitch Skin is to build a truly patient-centric dermatology experience, from initial awareness to patient check-in to consultation to billing and post-visit (and everything in between), building lasting relationships and leveraging seamless technology to maximize patient satisfaction.
             </p>
-            <a href="" class="cs-button-solid">Get Free Quote</a>
+            <a href="index-about.html" class="cs-button-solid">Back</a>
         </div>
     </div>
 </section>
