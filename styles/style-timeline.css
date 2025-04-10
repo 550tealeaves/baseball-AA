@@ -289,6 +289,10 @@
     #timeline-1517 .cs-h3 {
       width: 100%;
     }
+
+    cite, sup, a{
+      color: crimson;
+    }
   }
   /* Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
