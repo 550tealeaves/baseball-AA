@@ -292,6 +292,7 @@
 
     cite, sup, a{
       color: crimson;
+      text-decoration: none;
     }
   }
   /* Desktop - 1024px */
