@@ -13,30 +13,45 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            margin: 0;
             padding: 0;
-            /* background: linear-gradient(90deg in hsl shorter hue, #eae6e0, #D9AFD9, #97D9E1); */
+            margin: 0;
             background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
-            }
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100vw;
+        }
+    
         
-
         #map {
             margin-top: 50px;
             position: absolute;
             /* top: 18%; */
-            top: 20%;
+            top: 25%;
             bottom: 0;
+            left: 15%;
             width: 65%;
         }
 
-        h2{
+        .content{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+
+        h1{
             font-family: "Old Standard TT", serif;
             font-weight: 400;
             font-style: normal;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
             
+        }
+
+        h1 a{
+            font-style: italic;
+            font-size: 16px;
         }
 
         button {
@@ -114,17 +129,68 @@
         .cs-button-solid:hover:before {
             width: 100%;
         }
+
+
+        /*RESPONSIVENESS FOR SCREENS <= 1250px*/
+        @media (width <= 1250px) {
+          cite{
+            text-align: center;
+            margin-left: 20%;
+            font-size: 11px;
+          }
+
+          .summary{
+            margin-top: 10%;
+          }
+
+          h1{
+            font-size: 16px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+          
+          #map{
+            /* margin-top: 160px; */
+            top: 95%;
+          }
+
+          .content {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: start;
+            }
+
+            .box {
+                width: 50px;
+                height: 50px;
+            }
+
+          #row-rev {
+            display: flex;
+            justify-content: space-around;
+            padding-left: 25%;
+            }
+
+            button{
+                font-size: 11px;
+            }
+
+        }
     </style>
 </head>
 <body>
     <a class="cs-button-solid" aria-label="learn more about our programs" href="../index-about.html">Back</a> 
-    <h2>During the height of the Negro Leagues, there were many fields and ballparks available for the teams to play. After the collapse of the league in the 1960s, many of the ballparks were abandoned, fell into disrepair, and demolished. Today only a few remain.</h2>
-    <button onclick="flyToMarker(0)">Downs Field</button>
-    <button onclick="flyToMarker(1)">Rickwood Field</button>
-    <button onclick="flyToMarker(2)">J.P. Small Park</button>
-    <button onclick="flyToMarker(3)">League Park</button>
-    <button onclick="flyToMarker(4)">Hamtramck Stadium</button>
-    <button onclick="flyToMarker(5)">Hinchliffe Stadium</button>
+    <h1>During the height of the Negro Leagues, teams played in various ballparks, either by renting from white Major League teams, or if they were lucky, owning their own venue. After the collapse of the league in the 1960s, most of the ballparks were subsequently abandoned, fell into disrepair, and demolished. Today only a few Negro League home ballparks remain. <a href="https://www.baseball-reference.com/articles/still-standing-gary-gillette.shtml" target="_blank">Source</a></h1>
+    <div id="row-rev" class="content">
+        <button onclick="flyToMarker(0)" class="box">Downs Field</button>
+        <button onclick="flyToMarker(1)" class="box">Rickwood Field</button>
+        <button onclick="flyToMarker(2)" class="box">J.P. Small Park</button>
+        <button onclick="flyToMarker(3)" class="box">League Park</button>
+        <button onclick="flyToMarker(4)" class="box">Hamtramck Stadium</button>
+        <button onclick="flyToMarker(5)" class="box">Hinchliffe Stadium</button> 
+    </div>
+    
     <div id="map">
         </div>
     
