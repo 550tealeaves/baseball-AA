@@ -7,18 +7,34 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
       body{
-        background: rgba(243,226,199,1);
-      }
+          background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
+        }
       
       #container{
         padding: 1cm;
       }
       h2{
-          margin-left: 400px;
+          text-align: center;
+          color: #208529;
       }
 
+      p, cite{
+        padding-left: 20%;
+        padding-right: 20%;
+        text-align: center;
+      }
+      
+      span{
+        font-style: italic;
+      }
+
+      .summary{
+        margin-top: -100px;
+      }
+      
       .button-move{
         margin-left: 110px;
+        margin-top: 30px;
       }
       button{
         color: #F6BA20;
@@ -55,13 +71,63 @@
             border-radius: 16px;
           }
 
+          /* Mobile - 360px */
+        @media only screen and (min-width: 0rem) {
+            .cs-button-solid {
+            font-size: 1rem;
+            /* 46px - 56px */
+            line-height: clamp(2.875rem, 5.5vw, 3.0rem);
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            margin: 50px;
+            color: #1a1a1a;
+            min-width: 8%;
+            padding: 5px;
+            background-color: rgb(203, 33, 225);
+            border-radius: 5px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+            /* prevents padding from adding to the width */
+            box-sizing: border-box;
+            transition: color 0.3s;
+        }
+
+            .cs-button-solid:before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 0%;
+                background: #000;
+                opacity: 1;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: width 0.3s;
+            }
+
+            .cs-button-solid:hover {
+                color: #fff;
+            }
+            .cs-button-solid:hover:before {
+                width: 100%;
+            }
+
+        }
+
       
     </style>
   </head>
   <body>
-    <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
+    <a class="cs-button-solid" aria-label="learn more about our programs" href="../index-about.html">Back</a>
+    <div class="summary">
+      <h2>A comparison of Negro League playing stats</h2>
     <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
-     <p>There was much debate when the MLB decided to incorporate Negro League statistics into the official record book. However, </p>
+      <p>There was much debate and skepticism when the MLB decided in 2024 to incorporate Negro League statistics into the official record book. <span>The leagues, playing style, and season length were different.</span> However, one must recognize that most of those differences came from the constraints imposed during that time of segregation. Negro Leagues did what they could with the resources they had under the circumstances given.</p>
+      <cite>NOTE: Stats differed based on the website. MLB.com sometimes had 3 different statistics for one player</cite>
+    </div>
+    
     
     <div class="button-move">
       <button onclick="update('ab')">At Bats</button>
@@ -73,6 +139,7 @@
       <button onclick="update('avg')">Batting Average</button>
     </div>
     <div id="container"></div>
+    
     <script>
 
       // SET DIMENSIONS & MARGINS
