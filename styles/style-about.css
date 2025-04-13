@@ -49,12 +49,14 @@ body {
     body.cs-open {
       overflow: hidden;
     }
+
+    /*this is for the menu when it's on smaller screens*/
     #cs-navigation {
       width: 100%;
       /* prevents padding and border from affecting height and width */
       box-sizing: border-box;
       padding: 0.75rem 1rem;
-      background-color: white;
+      background-color: #ffcbcb9e;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       position: fixed;
       z-index: 10000;
@@ -457,7 +459,7 @@ body {
       /* prevents padding and border from affecting height and width */
       box-sizing: border-box;
       padding: 0 1rem;
-      background-color: rgba(203, 33, 225, 0.268);
+      background-color: #ffcbcb9e;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
       position: fixed;
       z-index: 10000;
@@ -582,7 +584,8 @@ body {
     #sbs-1308 {
         padding: var(--sectionPadding);
         overflow: hidden;
-        background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
+        /* background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff); */
+        background: white;
     }
     #sbs-1308 .cs-container {
         width: 100%;
