@@ -6,6 +6,8 @@
     <title>Fan Attendance</title>
     <link rel="stylesheet" href="../styles/style-about.css">
     <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <style>
         body{
           background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
@@ -13,51 +15,15 @@
         
         iframe{
             margin: 10%;
-            margin-top: 15%;
+            margin-top: 5%;
                 
         }
 
-        .cs-button-solid {
-          font-size: 1rem;
-          /* 46px - 56px */
-          line-height: clamp(2.875rem, 5.5vw, 3.0rem);
-          text-decoration: none;
-          font-weight: 700;
-          text-align: center;
-          margin: 50px;
-          color: #1a1a1a;
-          min-width: 8%;
-          padding: 5px;
-          background-color: rgb(203, 33, 225);
-          border-radius: 5px;
-          display: inline-block;
-          position: absolute;
-          z-index: 1;
-          /* prevents padding from adding to the width */
-          box-sizing: border-box;
-          transition: color 0.3s;
-      }
-
-      .cs-button-solid:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 0%;
-        background: black;
-        opacity: 1;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: width 0.3s;
-        border-radius: 5px;
-    }
-
-      .cs-button-solid:hover {
-        color: #fff;
-      }
-      .cs-button-solid:hover:before {
-        width: 100%;
-      }
+        .change-link{
+           /* background: #ffcbcb9e; */
+           background-color: rgba(203, 33, 225, 0.417);
+            border-radius: 5px;
+        }
 
       @media (width <= 1250px) {
         iframe{
@@ -69,7 +35,57 @@
     </style>
 </head>
 <body>
-    <a class="cs-button-solid" aria-label="learn more about our programs" href="../index-about.html">Back</a>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg sm-body-tertiary change-link">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="index.html">Home</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index-about.html">Main</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../people/index-people.html">Key Figures</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Timeline
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="../timeline/index-timeline1.html">1860s-1886 (Pre-color line)</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../timeline/index-timeline2.html">1887-1919 (Pre-Negro League)</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../timeline/index-timeline3.html">1920-1931 (NNL I)</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../timeline/index-timeline4.html">1933-1948 (NNL II)</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../timeline/index-timeline5.html">Integration (1947)</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="../timeline/index-timeline6.html">End of Negro Leagues (1947-1960s)</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Viz
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="index-stats.html">Statistics</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index-map.html">Home Fields</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index-players.html">Demographics</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="index-ncaa.html">NCAA Changes</a></li>
+                </ul>
+              </li>
+          </div>
+        </div>
+      </nav>
+  </div>
     <iframe title="How successful were the Negro Leagues? Let's examine fan attendance at the games." aria-label="Scatter Plot" id="datawrapper-chart-oBQ4R" src="https://datawrapper.dwcdn.net/oBQ4R/9/" scrolling="no" frameborder="0" style="width: 0; min-width: 80% !important; border: none;" height="732" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
     </script>
 </body>
