@@ -16,3 +16,8 @@
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
     
 }
+
+cite sup a{
+    color: blue;
+    text-decoration: none;
+  }
