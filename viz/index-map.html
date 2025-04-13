@@ -46,6 +46,8 @@
             margin-bottom: 15px;
             font-size: 18px;
             text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
             
         }
 
@@ -82,53 +84,46 @@
         }
 
         .cs-button-solid {
-            font-size: 1rem;
-            /* 46px - 56px */
-            line-height: 2;
-            text-decoration: none;
-            font-weight: 700;
-            text-align: center;
-            margin-left: 10px;
-            margin-top: 5px;
-            background-color: rgb(203, 33, 225);
-            color: black;
-            min-width: 4%;
-            padding: 1px;
-            border: 4px ridge #452206;
-            border-radius: 5px;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
-            transition: color 0.3s;
-        }
+          font-size: 1rem;
+          /* 46px - 56px */
+          line-height: clamp(2.875rem, 5.5vw, 3.0rem);
+          text-decoration: none;
+          font-weight: 700;
+          text-align: center;
+          margin-left: 50px;
+          margin-top: 10px;
+          color: #1a1a1a;
+          min-width: 8%;
+          background-color: rgb(203, 33, 225);
+          border-radius: 5px;
+          display: inline-block;
+          position: relative;
+          z-index: 1;
+          /* prevents padding from adding to the width */
+          box-sizing: border-box;
+          transition: color 0.3s;
+      }
 
+      .cs-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: black;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: width 0.3s;
+        border-radius: 5px;
+    }
 
-        .cs-button-solid:before {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 0%;
-            background: #000;
-            color: rgb(203, 33, 225);
-            opacity: 1;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: width 0.3s;
-            border-radius: 5px;
-        }
-
-        /* change color of button font when you hover*/
-        .cs-button-solid:hover {
-            color: rgb(203, 33, 225);
-        }
-        
-        /* adjusts hover transition size when you hover*/
-        .cs-button-solid:hover:before {
-            width: 100%;
-        }
+      .cs-button-solid:hover {
+        color: #fff;
+      }
+      .cs-button-solid:hover:before {
+        width: 100%;
+      }
 
 
         /*RESPONSIVENESS FOR SCREENS <= 1250px*/
