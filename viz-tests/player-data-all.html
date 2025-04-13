@@ -9,6 +9,13 @@
       body{
         background: rgba(243,226,199,1);
       }
+
+      iframe{
+            margin: 10%;
+            margin-top: 35px;
+            max-width: 80%;
+                
+        }
       
       #container{
         padding: 1cm;
@@ -75,8 +82,8 @@
     <br/>
     
     <div class="line-chart">
-      <iframe title="Player demographics from 1947-2023" aria-label="Interactive line chart" id="datawrapper-chart-IzFlO" src="https://datawrapper.dwcdn.net/IzFlO/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="622" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
-      </script>
+      <iframe title="Player demographics from 1947-2023" aria-label="Interactive line chart" id="datawrapper-chart-IzFlO" src="https://datawrapper.dwcdn.net/IzFlO/6/" scrolling="no" frameborder="0" style="width: 0; min-width: 80% !important; border: none;" height="667" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    </script>
     </div>
 
     <br/>
@@ -90,18 +97,33 @@
     <br/>
     <br/>
 
-    <div class="bar-chart">
-      <iframe title="Fan attendance during Negro Leagues" aria-label="Scatter Plot" id="datawrapper-chart-oBQ4R" src="https://datawrapper.dwcdn.net/oBQ4R/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 70% !important; border: none;" height="641" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    <div class="scatter">
+      <iframe title="How successful were the Negro Leagues? Let's examine fan attendance at the games." aria-label="Scatter Plot" id="datawrapper-chart-oBQ4R" src="https://datawrapper.dwcdn.net/oBQ4R/9/" scrolling="no" frameborder="0" style="width: 0; min-width: 80% !important; border: none;" height="732" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
     </script>
     </div>
 
     <br/>
     <br/>
 
+    <div class="donut">
+      <iframe title="Estimated NCAA Revenue Sharing (2025-2026) " aria-label="Multiple Donuts" id="datawrapper-chart-JwsFz" src="https://datawrapper.dwcdn.net/JwsFz/5/" scrolling="no" frameborder="0" style="width: 0; min-width: 80% !important; border: none;" height="766" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    </script>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="bar-chart">
+      <iframe title="Scholarship Increases For Men's NCAA I Sports" aria-label="Split Bars" id="datawrapper-chart-A4gPW" src="https://datawrapper.dwcdn.net/A4gPW/8/" scrolling="no" frameborder="0" style="width: 0; min-width: 80% !important; border: none;" height="727" data-external="1"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();
+    </script>
+    </div>
+    <br/>
+    <br/>
+
     <div class="lollipop">
       <h2 style="color: #208529">A comparison of Negro League playing stats</h2>
       <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
-
+      <p>When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did what they could with the resources they had under the given circumstances.</p>
+      <cite>NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues section. (ex:<a href="https://www.mlb.com/history/negro-leagues/players/josh-gibson" target="_blank"> Source</a>).</cite>
       <div class="button-move">
         <button onclick="update('ab')">At Bats</button>
         <button onclick="update('r')">Runs</button>
