@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="styles/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Satisfy&display=swap');
+        
+        /* body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      } */
+      body{
+        margin: 0;  
+        background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
+        }
+        
+        
         h1{
             text-align: center;
             font-family: "Satisfy", cursive;
@@ -19,9 +30,74 @@
             text-align: center;
             margin: 30px;
         }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(203, 33, 225, 0.416);
+        padding: 10px 20px;
+        color: black;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links li a {
+        color: black;
+        text-decoration: none;
+      }
+
+      .nav-links li a:hover {
+        color: black;
+        text-decoration: underline var(--primary);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: #0a655a00;
+          padding: 10px 0;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+        
+        
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo"></div>
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index-about.html">Main Menu</a></li>
+          <li><a href="people/index-people.html">Key Figures</a></li>
+          <li><a href="timeline/index-timeline1.html">Timeline</a></li>
+          <li><a href="#">Viz</a></li>
+        </ul>
+      </nav>
     <h1>Works Cited</h1>
     <ul>
         <ol>
@@ -161,21 +237,14 @@
         <ol>
             (41) “1962 East-West Game (Negro League).” Baseball Reference, https://www.baseball-reference.com/bullpen/1962_East-West_Game_(Negro_League).
         </ol>
-        <ol>
-
-        </ol>
-        <ol>
-
-        </ol>
-        <ol>
-
-        </ol>
-        <ol>
-
-        </ol>
-        <ol>
-
-        </ol>
     </ul>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+    </script>
 </body>
 </html>
