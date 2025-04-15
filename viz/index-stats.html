@@ -39,9 +39,8 @@
         text-align: center;
       }
 
-      cite{
-        text-align: center;
-        padding-left: 15%;
+      .shrink-text{
+        font-size: 14px;
       }
       
       span{
@@ -94,12 +93,6 @@
 
         /*RESPONSIVENESS FOR SCREENS <= 1250px*/
         @media (width <= 1250px) {
-          cite{
-            text-align: center;
-            margin-left: 20%;
-            font-size: 11px;
-          }
-
           .summary{
             margin-top: 10%;
           }
@@ -110,6 +103,10 @@
 
           p{
             font-size: 16px;
+          }
+          
+          .shrink-text{
+            font-size: 12px;
           }
         }
 
@@ -175,7 +172,7 @@
       <h2>A Comparison of Negro League Playing Statistics</h2>
     <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
       <p>When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did what they could with the resources they had under the given circumstances.</p>
-      <cite>NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues section. (ex:<a href="https://www.mlb.com/history/negro-leagues/players/josh-gibson" target="_blank"> Source</a>).</cite>
+      <p class="shrink-text">NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues section and were selected because it only utilized the statistics from their time during the negro leagues, excluding any data from MLB stints. (Ex: <a href="https://www.mlb.com/history/negro-leagues/players/josh-gibson" target="_blank">Source</a>).</p>
     </div>
     
     
