@@ -294,6 +294,10 @@
       color: #D31243;
       text-decoration: none;
     }
+
+    a{
+      text-decoration: none;
+    }
   }
   /* Desktop - 1024px */
   @media only screen and (min-width: 64rem) {
