@@ -290,7 +290,7 @@
       width: 100%;
     }
 
-    cite, sup, a{
+    cite sup a{
       color: #D31243;
       text-decoration: none;
     }
