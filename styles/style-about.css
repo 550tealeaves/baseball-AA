@@ -16,8 +16,9 @@ body {
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 0.25rem;
-    margin-left: 17%;
-    display: block;
+    margin-left: 20%;
+    /* display: block; */
+    position: relative;
 }
 
 .cs-title {
