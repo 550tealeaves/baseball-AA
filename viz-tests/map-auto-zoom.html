@@ -57,7 +57,7 @@
 
         //CREATE CUSTOM ICON
         var stadiumIcon = L.icon({
-            iconUrl: '../icons/baseball-field.png',
+            iconUrl: '../icons/stadium.png',
             shadowSize:   [50, 64], // size of the shadow
             iconSize:     [38, 50], // size of the icon
             iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
@@ -93,7 +93,7 @@
 
         function cycleMarkers() {
             let marker = markers[currentIndex];
-            map.flyTo(marker.getLatLng(), 19, { duration: 5 }); // Fly to marker
+            map.flyTo(marker.getLatLng(), 16, { duration: 6 }); // Fly to marker
             marker.openPopup(); // Open popup
 
             // Move to next marker after a delay
