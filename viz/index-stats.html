@@ -59,10 +59,11 @@
         color: #F6BA20;
         background: #39257F;
         font-weight: bold;
-        margin: 5px;
+        margin: 20px;
         margin-left: 50px;
         border-radius: 30px;
         padding: 6px;
+        width: 5%;
       }
       button:hover{
         color: #39257F;
@@ -80,14 +81,14 @@
             position: absolute;
             width: max-content;
             height: 20px;
-            padding: 4px;    
+            padding: 1px;    
             text-align: center; 
             font-family:sans-serif;
             font-size: 14px;
             font-weight: bold;
             background: rgb(189, 217, 249);
             color: black; 
-            border-radius: 16px;
+            border-radius: 7px;
           }
 
 
@@ -177,13 +178,13 @@
     
     
     <div class="button-move">
-      <button onclick="update('ab')">At Bats</button>
-      <button onclick="update('r')">Runs</button>
-      <button onclick="update('h')">Hits</button>
-      <button onclick="update('hr')">Home Runs</button>
-      <button onclick="update('rbi')">Runs Batted In</button>
-      <button onclick="update('sb')">Stolen Bases</button>
-      <button onclick="update('avg')">Batting Average</button>
+      <button title="At Bats" onclick="update('ab')">AB</button>
+      <button title="Runs" onclick="update('r')">R</button>
+      <button title="Hits" onclick="update('h')">H</button>
+      <button title="Home Runs" onclick="update('hr')">HR</button>
+      <button title="Runs Batted In" onclick="update('rbi')">RBI</button>
+      <button title="Stolen Bases" onclick="update('sb')">SB</button>
+      <button title="Batting Average" onclick="update('avg')">BA</button>
     </div>
     <div id="container"></div>
     
