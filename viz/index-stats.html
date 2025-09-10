@@ -23,8 +23,6 @@
 
         #container {
             padding: 1cm;
-            width: 90%;
-            /* overflow-x: auto; */
         }
 
         h2 {
@@ -82,15 +80,15 @@
         .tooltip {
             position: absolute;
             width: max-content;
-            padding: 5px;
-            text-align: center;
-            font-family: sans-serif;
+            height: 20px;
+            padding: 0.5px;    
+            text-align: center; 
+            font-family:sans-serif;
             font-size: 14px;
             font-weight: bold;
             background: rgb(189, 217, 249);
-            color: black;
+            color: black; 
             border-radius: 7px;
-            pointer-events: none;
         }
 
         /* Responsive adjustments */
@@ -113,7 +111,7 @@
 
             #container {
                 padding: 10px;
-                width: auto;
+                width: 50%;
             }
         }
 
@@ -133,7 +131,7 @@
             }
 
             #container {
-                padding: 50px;
+                padding: 30px;
                 width: auto;
             }
         }
@@ -224,13 +222,13 @@
         understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did
         what they could with the resources they had under the given circumstances.</p>
         <ul>
-            <li><a href="#">AB - At Bats</a></li>
-            <li><a href="#">R - Runs</a></li>
-            <li><a href="#">H - Hits</a></li>
-            <li><a href="#">HR - Home Runs</a></li>
-            <li><a href="#">RBI - Runs Batted In</a></li>
-            <li><a href="#">SB - Stolen Bases</a></li>
-            <li><a href="#">AVG - Batting Average</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">AB - At Bats</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank">R - Runs</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/hit" target="_blank">H - Hits</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/home-run" target="_blank">HR - Home Runs</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/runs-batted-in" target="_blank">RBI - Runs Batted In</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/stolen-base" target="_blank">SB - Stolen Bases</a></li>
+            <li><a href="https://www.mlb.com/glossary/standard-stats/batting-average" target="_blank">AVG - Batting Average</a></li>
         </ul>
         <p class="shrink-text">NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues
         section and were selected because it only utilized the statistics from their time during the negro leagues, excluding
@@ -250,81 +248,160 @@
     <div id="container"></div>
 
     <script>
-        const margin = { top: 30, right: 30, bottom: 70, left: 120 };
-        let width = document.getElementById('container').clientWidth - margin.left - margin.right;
-        let height = 650 - margin.top - margin.bottom;
+        const margin = { top: 30, right: 80, bottom: 70, left: 120 };
+        width = 850,
+        height = 650;
+        // let width = document.getElementById('container').clientWidth - margin.left - margin.right;
+        // let height = 650 - margin.top - margin.bottom;
 
-        const svg = d3.select("#container")
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
-            .attr("preserveAspectRatio", "xMidYMid meet")
-            .append("g")
-            .attr("transform", `translate(${margin.left},${margin.top})`);
+        // CREATE SVG & APPEND TO BODY
+      const svg = d3.select("#container")
+        .append("svg")
+        .attr("class", "svg")
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
 
-        const tooltip = d3.select("#container").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
+        // CREATE TOOLTIP
+        // TOOLTIP - REQUIRES 3 FUNCTIONS
+        const tooltip = d3.select("#container")
+            .append("div")
+            .attr("class", "tooltip") //class for styling in CSS
+            .style("opacity", 0); //opacity set to 0 is invisible until used
+      
 
-        const x = d3.scaleLinear().range([0, width]);
-        const xAxis = svg.append("g").attr("transform", `translate(0,${height})`).attr("class", "x-axis");
-        const y = d3.scaleBand().range([height, 0]).padding(1);
-        const yAxis = svg.append("g").attr("class", "y-axis");
+      // INITIALIZE X-AXIS
+      const x = d3.scaleLinear()
+        .range([0, width])
+      const xAxis = svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .attr("class", "x-axis")
+        
 
-        function update(selectedStat) {
-            d3.csv("../data/player-stats.csv").then(data => {
+      // INITIALIZE Y-AXIS
+      const y = d3.scaleBand()
+        .range([height, 0])
+        .padding(1);
+      const yAxis = svg.append("g")
+        .attr("class", "y-axis")
+
+
+
+      // DEFINE FUNCTION UPDATE THAT CREATES/UPDATES THE CHART FOR GIVEN VARIABLE
+      //THIS UPDATE IS CONNECTED TO THE BUTTONS ONCLICK"UPDATE" IN HTML
+      function update(selectedStat) {
+
+        // LOAD/PARSE DATA
+        d3.csv("../data/player-stats.csv").then(data => {
+
+          console.log('data', data);
+
+          //FORMAT THE DATA
                 data.forEach(d => {
-                    d[selectedStat] = +d[selectedStat];
+                  d.name = d.name;
+                  d.ab = d.ab;
+                  d.r = d.r;
+                  d.h = +d.h;
+                  d.hr = +d.hr;
+                  d.rbi = +d.rbi;
+                  d.sb = +d.sb;
+                  d.avg = +d.avg;
                 });
+          
+          //SORT THE DATA - descending  
+          data.sort((a, b) => b.name - a.name);//not working
+          //data.sort(d3.ascending) //doesn't work
 
-                x.domain([0, d3.max(data, d => d[selectedStat])]);
-                y.domain(data.map(d => d.name));
+          // X-AXIS
+          x.domain([0, d3.max(data, d => +d[selectedStat])])
+          xAxis
+            .transition()
+            .duration(1000)
+            .call(d3.axisBottom(x))
+            .selectAll("text")
+            .attr("fill", "black")
+            .attr("font-weight", 500)
 
-                xAxis.transition().duration(1000).call(d3.axisBottom(x));
-                yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
-                const mouseover = (event, d) => {
-                    tooltip.html(`${d.name} - ${d[selectedStat]}`)
-                        .style("opacity", 1)
-                        .style("left", (event.pageX + 8) + "px")
-                        .style("top", (event.pageY + 8) + "px");
-                };
+          // Y-AXIS
+          y.domain(data.map(d => d.name));
+          yAxis
+          .transition()
+          .duration(1000)
+          .call(d3.axisLeft(y))
+          .selectAll("text")
+          .attr("fill", "black");
 
-                const mousemove = (event) => {
-                    tooltip.style("left", (event.pageX + 8) + "px")
-                        .style("top", (event.pageY + 8) + "px");
-                };
 
-                const mouseout = () => tooltip.style("opacity", 0);
+          //1ST TOOLTIP FUNCTION - MOUSEOVER
+          const mouseover = function (event, d) {  //listen for events being triggered on done elements
+            tooltip  //give things to the tooltip
+              .html(d.name + " - " + +d[selectedStat])//can add HTML features, like line break
+              .style("opacity", 1) //opacity set to 1 is visible - mouse hovers & you can see it
+              //Add absolute position of mouse b/c tooltip follows mouse
+              .style("left", (event.pageX + 8) + "px")//mouse x coordinate - higher the # further away tooltip moves
+              .style("top", (event.pageY + 8) + "px");//mouse y coordinate - higher the # further away tooltip moves
+          }
 
-                const lines = svg.selectAll(".myLine").data(data);
-                lines.enter().append("line")
-                    .attr("class", "myLine")
-                    .merge(lines)
-                    .transition().duration(1000)
-                    .attr("x1", d => x(d[selectedStat]))
-                    .attr("x2", x(0))
-                    .attr("y1", d => y(d.name))
-                    .attr("y2", d => y(d.name))
-                    .attr("stroke", "#718a9b");
+          //2nd TOOLTIP FUNCTION - MOUSEMOVE
+          //Use event & d
+          const mousemove = function (event, d) {
+            tooltip
+              .style("left", (event.pageX + 8) + "px") //higher the # further away tooltip moves
+              .style("top", (event.pageY + 8) + "px"); //higher the # further away tooltip moves
+          }
 
-                const circles = svg.selectAll("circle").data(data);
-                circles.enter().append("circle")
-                    .merge(circles)
-                    .on("mouseover", mouseover)
-                    .on("mousemove", mousemove)
-                    .on("mouseout", mouseout)
-                    .transition().duration(1000)
-                    .attr("cx", d => x(d[selectedStat]))
-                    .attr("cy", d => y(d.name))
-                    .attr("r", 6)
-                    .style("fill", "#B23124")
-                    .attr("stroke", "#222224");
-            });
-        }
+          //3rd TOOLTIP FUNCTION - MOUSEOUT
+          //Use event & d
+          const mouseout = function (event, d) {
+            tooltip
+              .style("opacity", 0); //invisible when cursor leaves
+          }
 
-        update('ab');
+
+          // VARIABLE J: MAP DATA TO EXISTING CIRCLE
+          const j = svg.selectAll(".myLine")
+            .data(data)
+          // update lines
+          j
+            .enter()
+            .append("line")
+            .attr("class", "myLine")
+            .merge(j)
+            .transition()
+            .duration(1000)
+            .attr("x1", d => x(+d[selectedStat]))
+            .attr("x2", d => x(0))
+            .attr("y1", d => y(d.name))
+            .attr("y2", d => y(d.name))
+            .attr("stroke", "#718a9b");
+
+
+          // VARIABLE U: MAP DATA TO EXISTING CIRCLE
+          const u = svg.selectAll("circle")
+            .data(data)
+          // UPDATE CIRCLE
+          u
+            .enter()
+            .append("circle")
+            .merge(u)
+            .on("mouseover", mouseover) //NEW: .on() - this is event
+            .on("mousemove", mousemove) //tells it what to do 
+            .on("mouseout", mouseout)
+            .transition()
+            .duration(1000)
+            .attr("cx", d => x(+d[selectedStat]))
+            .attr("cy", d => y(d.name))
+            .attr("r", 6)
+            .style("fill", "#B23124")
+            .attr("stroke", "#222224");
+        })
+      }
+
+      // INITIALIZE PLOT
+      update('name')
     </script>
 </body>
 
