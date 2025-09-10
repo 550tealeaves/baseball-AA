@@ -39,6 +39,13 @@
         text-align: center;
       }
 
+      ul, li{
+        padding-left: 20%;
+        padding-right: 20%;
+        text-align: center;
+        list-style: none;
+      }
+
       .shrink-text{
         font-size: 14px;
       }
@@ -55,6 +62,7 @@
         margin-left: 110px;
         margin-top: 30px;
       }
+
       button{
         color: #F6BA20;
         background: #39257F;
@@ -81,7 +89,7 @@
             position: absolute;
             width: max-content;
             height: 20px;
-            padding: 1px;    
+            padding: 0.5px;    
             text-align: center; 
             font-family:sans-serif;
             font-size: 14px;
@@ -173,6 +181,15 @@
       <h2>A Comparison of Negro League Playing Statistics</h2>
     <!-- Add buttons with event listener onclick="update" - must define update as a function in the script -->
       <p>When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did what they could with the resources they had under the given circumstances.</p>
+      <ul>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">AB - At Bats</a> </li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank">R - Runs</a></li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/hit" target="_blank">H - Hits</a></li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/home-run" target="_blank">HR - Home Runs</a></li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/runs-batted-in" target="_blank">RBI - Runs Batted In</a></li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/stolen-base" target="_blank">SB - Stolen Bases</a></li>
+        <li> <a href="https://www.mlb.com/glossary/standard-stats/batting-average" target="_blank">AVG - Batting Average</a></li>
+      </ul>
       <p class="shrink-text">NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues section and were selected because it only utilized the statistics from their time during the negro leagues, excluding any data from MLB stints. (Ex: <a href="https://www.mlb.com/history/negro-leagues/players/josh-gibson" target="_blank">Source</a>).</p>
     </div>
     
@@ -184,7 +201,7 @@
       <button title="Home Runs" onclick="update('hr')">HR</button>
       <button title="Runs Batted In" onclick="update('rbi')">RBI</button>
       <button title="Stolen Bases" onclick="update('sb')">SB</button>
-      <button title="Batting Average" onclick="update('avg')">BA</button>
+      <button title="Batting Average" onclick="update('avg')">AVG</button>
     </div>
     <div id="container"></div>
     
