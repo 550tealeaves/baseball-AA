@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orig - Negro League Fields</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style-about.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: linear-gradient(90deg in hsl shorter hue, #fff5e6, #ffdbff);
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100vw;
+        }
+
+        .change-link{
+           /* background: #ffcbcb9e; */
+           background-color: rgba(203, 33, 225, 0.417);
+            border-radius: 5px;
+        }
+    
+        
+        #map {
+            margin-top: 50px;
+            position: absolute;
+            /* top: 18%; */
+            top: 25%;
+            bottom: 0;
+            left: 15%;
+            width: 65%;
+        }
+
+        .content{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+        }
+
+        h1{
+            font-family: "Old Standard TT", serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            
+        }
+
+        h1 a{
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        button {
+            background-color:#0a0a23;
+            color: #fff;
+            border:1px solid #1d01a7; 
+            border-radius:10px; 
+            margin-right: 25px;
+            margin-left: 10px;
+            margin-bottom: 50px;
+            min-height:20px; 
+            min-width: 60px;
+            }
+
+        button:hover{
+            background-color: aliceblue;
+            color: black;  
+        }
+        
+        button:focus{
+            outline-color: transparent;
+            outline-style:solid;
+            box-shadow: 0 0 0 2px #1d01a7;
+        }
+
+        button:active {
+            background-color: #f0e1b3;
+        }
+
+
+        /*RESPONSIVENESS FOR SCREENS <= 1250px*/
+        @media (width <= 1250px) {
+          cite{
+            text-align: center;
+            margin-left: 20%;
+            font-size: 11px;
+          }
+
+          .summary{
+            margin-top: 10%;
+          }
+
+          h1{
+            font-size: 16px;
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+          
+          #map{
+            /* margin-top: 160px; */
+            top: 95%;
+          }
+
+          .content {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: start;
+            }
+
+            .box {
+                width: 50px;
+                height: 50px;
+            }
+
+          #row-rev {
+            display: flex;
+            justify-content: space-around;
+            padding-left: 25%;
+            }
+
+            button{
+                font-size: 11px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg sm-body-tertiary change-link">
+            <div class="container-fluid">
+              <!-- <a class="navbar-brand" href="index.html">Home</a> -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index-about.html">Main</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../people/index-people.html">Key Figures</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Timeline
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../timeline/index-timeline1.html">1860s-1886 (Pre-color line)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline2.html">1887-1919 (Pre-Negro League)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline3.html">1920-1931 (NNL I)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline4.html">1933-1948 (NNL II)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline5.html">Integration (1947)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline6.html">End of Negro Leagues (1947-1960s)</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Viz
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index-attendance.html">Fan Attendance</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-stats.html">Statistics</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-players.html">Demographics</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-ncaa.html">NCAA Changes</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index-sources.html">Sources</a>
+                  </li>
+              </div>
+            </div>
+          </nav>
+      </div>
+    <h1>During the height of the Negro Leagues, teams played in various ballparks, either by renting from white Major League teams, or if they were lucky, owning their own venue. After the collapse of the league in the 1960s, most of the ballparks were subsequently abandoned, fell into disrepair, and demolished. Today only a few Negro League home ballparks remain. <a href="https://www.baseball-reference.com/articles/still-standing-gary-gillette.shtml" target="_blank">Source</a> & <a href="https://www.flaticon.com/free-icons/stadium" title="stadium icons" target="_blank">Icon Attribution</a>
+    </h1>
+    <div id="row-rev" class="content"> 
+        <button onclick="flyToMarker(0)" class="box">Downs Field</button>
+        <button onclick="flyToMarker(1)" class="box">Rickwood Field</button>
+        <button onclick="flyToMarker(2)" class="box">J.P. Small Park</button>
+        <button onclick="flyToMarker(3)" class="box">League Park</button>
+        <button onclick="flyToMarker(4)" class="box">Hamtramck Stadium</button>
+        <button onclick="flyToMarker(5)" class="box">Hinchliffe Stadium</button> 
+    </div>
+    
+    <div id="map">
+        </div>
+    
+        
+    <script>
+        const map = L.map('map').setView([38.0, -87.5], 5);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            minZoom: 5,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        //MAP BOUNDARIES
+        //Sets bounds but can click outside bounds and it will drag you back 
+        let westBoundary = L.latLng(55.4752, -108.3087); //higher 2nd # = moves east, lower 2nd # = moves west, higher first # - moves north 
+        let eastBoundary = L.latLng(25.9571, -53.5436);
+        let boundaries = L.latLngBounds(westBoundary, eastBoundary);
+
+
+        //Stop user from dragging map outside of bounds
+        map.setMaxBounds(boundaries);
+        map.on('drag', function () { 
+            map.panInsideBounds(boundaries, {animate: false})
+        });
+
+
+        //CREATE CUSTOM ICON
+        var stadiumIcon = L.icon({
+            iconUrl: '../icons/stadium.png',
+            shadowSize:   [50, 64], // size of the shadow
+            iconSize:     [38, 50], // size of the icon
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
+
+
+
+        //const fieldIcon = new stadiumIcon({iconURL:'stadium.png'});
+
+
+        //ADD MARKERS
+
+        var markers = [
+            L.marker([30.275713322561643, -97.7090813460537], {icon:stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://guidetoaustinarchitecture.com/places/downs-field/" target="_blank" rel="noopener noreferrer">Downs Field (1914)</a></b><br /> <p>This Austin, TX ballpark was the home to Austin Black Senators from 1927-1938.</p> <br /> <img src="../images/downs-field.jpeg" width="85%" height="auto" />'),
+
+            L.marker([33.50251653867355, -86.85591986592571], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://rickwood.com/about/" target="_blank" rel="noopener noreferrer">Rickwood Field (1910)</a></b><br /> <p>Opened on August 18, 1910, this is the oldest surviving ballpark in the US and was home to the Birmingham Black Barons, featuring legendary players Satchel Paige and Willie Mays.</p> <br /> <img src="../images/rickwood-field.jpg" width="85%" height="auto" />'),
+
+            L.marker([30.346638181972438, -81.67493029466705], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.jacksonville.gov/departments/parks-and-recreation/recreation-and-community-programming/parks/james-p-small-park" target="_blank" rel="noopener noreferrer">J.P. Small Park (1912)</a></b><br / <p>Opened in 1912, this was the home to the Jacksonville Red Caps</p><br /> <img src="../images/jp-small-park.jpg" width="85%" height="auto" /> '),
+
+            L.marker([41.511316976152955, -81.64428587626861], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://clevelandhistorical.org/items/show/16" target="_blank" rel="noopener noreferrer">League Park (1910)</a></b><br /> <p>Opened on April 21, 1910, this was the home to Cleveland Red Sox & the Cleveland Buckeyes.Today, only parts of the facade and ticket office exist.</p><br /> <img src="../images/league-park.jpg" width="85%" height="auto" /> '),
+
+            L.marker([42.38982447572633, -83.05068935758256], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.hamtramckstadium.org/" target="_blank" rel="noopener noreferrer">Hamtramck Stadium (1930)</a></b><br /> <p>Opened in 1930, this stadium in Hamtramck, MI was formerly home to the Detroit Wolves & the Detroit Stars.</p><br /> <img src="../images/hamtramck-stadium.jpg" width="85%" height="auto" />'),
+
+            L.marker([40.91840809015926, -74.1812900582836], {icon: stadiumIcon}).addTo(map)
+            .bindPopup('<b><a href="https://www.thehinchliffestadium.com/about" target="_blank" rel="noopener noreferrer">Hinchliffe Stadium (1932)</a></b><br /><p>Located in Paterson, NJ, this 1932 stadium was home to the NY Black Yankees & the NY Cubans.</p><br /> <img src="../images/hinchliffe-stadium.jpg" width="85%" height="auto" />')
+        ];
+
+
+        // Function to fly to a specific marker
+        function flyToMarker(index) {
+            var marker = markers[index];
+            if (marker) {
+                map.flyTo(marker.getLatLng(), 19, {duration: 4}); //add zoom time as duration
+                marker.openPopup(); // Optionally open popup
+            }
+        }
+        map.on('click', onMapClick);
+    </script>
+</body>
+</html>
