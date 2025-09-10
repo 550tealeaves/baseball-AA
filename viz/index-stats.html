@@ -19,7 +19,10 @@
         .change-link {
             background-color: rgba(203, 33, 225, 0.417);
             border-radius: 5px;
+            padding: 0;
+            text-align: left;
         }
+
 
         #container {
             padding: 1cm;
@@ -34,12 +37,16 @@
             font-size: 2.5rem;
         }
 
-        p,
-        ul,
-        li {
+        p{
+            line-height: 2.0;
             text-align: center;
-            padding: 0 10%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .plays{
             list-style: none;
+            text-align: center;
         }
 
         .shrink-text {
@@ -142,87 +149,65 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg sm-body-tertiary change-link">
             <div class="container-fluid">
-                <!-- <a class="navbar-brand" href="index.html">Home</a> -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index-about.html">Main</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../people/index-people.html">Key Figures</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Timeline
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../timeline/index-timeline1.html">1860s-1886 (Pre-color
-                                        line)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../timeline/index-timeline2.html">1887-1919 (Pre-Negro
-                                        League)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../timeline/index-timeline3.html">1920-1931 (NNL I)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../timeline/index-timeline4.html">1933-1948 (NNL II)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../timeline/index-timeline5.html">Integration (1947)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="../timeline/index-timeline6.html">End of Negro Leagues
-                                        (1947-1960s)</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Viz
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="index-attendance.html">Fan Attendance</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="index-map.html">Map</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="index-players.html">Demographics</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="index-ncaa.html">NCAA Changes</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index-sources.html">Sources</a>
-                        </li>
-                </div>
+              <!-- <a class="navbar-brand" href="index.html">Home</a> -->
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index-about.html">Main</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../people/index-people.html">Key Figures</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Timeline
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="../timeline/index-timeline1.html">1860s-1886 (Pre-color line)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline2.html">1887-1919 (Pre-Negro League)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline3.html">1920-1931 (NNL I)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline4.html">1933-1948 (NNL II)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline5.html">Integration (1947)</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="../timeline/index-timeline6.html">End of Negro Leagues (1947-1960s)</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Viz
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index-attendance.html">Fan Attendance</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-map.html">Map</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-players.html">Demographics</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="index-ncaa.html">NCAA Changes</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../index-sources.html">Sources</a>
+                  </li>
+              </div>
             </div>
-        </nav>
-    </div>
+          </nav>
+      </div>
     <div class="summary">
         <h2>A Comparison of Negro League Playing Statistics</h2>
-        <p>When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate
+        <p class="info">When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate
         and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must
         understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did
         what they could with the resources they had under the given circumstances.</p>
         <p>Select a button below to view player stats</p>
-        <ul>
+        <ul class="plays">
             <li><a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">AB - At Bats</a></li>
             <li><a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank">R - Runs</a></li>
             <li><a href="https://www.mlb.com/glossary/standard-stats/hit" target="_blank">H - Hits</a></li>
@@ -249,7 +234,7 @@
     <div id="container"></div>
 
     <script>
-        const margin = { top: 30, right: 80, bottom: 70, left: 120 };
+        const margin = { top: 30, right: 110, bottom: 70, left: 120 };
         width = 850,
         height = 650;
         // let width = document.getElementById('container').clientWidth - margin.left - margin.right;
