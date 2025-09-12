@@ -118,40 +118,31 @@ body{
       margin: 0;
       color: var(--bodyTextColor);
     }
+
+     /*Next 3 #sbs make the image responsive*/
     #sbs-1431 .cs-image-group {
-      /* scale down the whole section */
-      font-size: min(1.6vw, .6em);
-      /* aligns the .cs-image-group to the right */
-      text-align: right;
-      /* using ems so we can scale this container with a font size */
-      width: auto;
-      min-width: 37.5em;
-      max-width: 43.875rem;
-      /* changes auto at desktop */
-      height: 38.625em;
-      /* sends it to the right in the 2nd position */
-      order: 2;
+      width: 100%;
+      max-width: 500px;     /* optional limit */
+      height: auto;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    #sbs-1431 .cs-person {
+      width: 100%;
+      height: auto;
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      position: relative;
     }
-    #sbs-1431 .cs-person {
-      height: 100%;
-      width: auto;
-      /* allows text align to move it left or right */
-      display: inline-flex;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-    }
+
     #sbs-1431 .cs-person img {
-      width: auto;
-      height: 65%;
-      margin: 50%;
-      display: block;
+      width: 100%;
+      height: auto;
       object-fit: contain;
+      margin: 0;
     }
+
+
     .cs-button-solid {
       font-size: 1rem;
       /* 46px - 56px */
@@ -255,7 +246,7 @@ body{
             <picture class="cs-person">
                 <source media="(max-width: 600px)" srcset="../images/josh-gibson2.jpg">
                 <source media="(min-width: 601px)" srcset="../images/josh-gibson2.jpg">
-                <img loading="lazy" decoding="async" src="../images/josh-gibson2.jpg" class="img-fluid rounded" alt="josh-gibson" width="702" height="617" aria-hidden="true">
+                <img loading="lazy" decoding="async" src="../images/josh-gibson2.jpg" class="img-fluid rounded w-100" alt="josh-gibson" aria-hidden="true">
             </picture>
         </div>
         <div class="cs-content">
