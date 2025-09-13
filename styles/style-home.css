@@ -94,8 +94,8 @@ body {
         content: "";
         width: 100%;
         height: 100%;
-        background: #000;
-        opacity: 0.4;
+        background: black; /*this adds a color over pic*/
+        opacity: 0.5; /*higher # - more opaque it is*/
         position: absolute;
         display: block;
         top: 0;
@@ -108,8 +108,8 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        height: 100%;
         width: 100%;
+        height: 100%;
         object-fit: cover;
     }
     
