@@ -27,6 +27,7 @@ body {
     /* prevents padding from affecting height and width */
     box-sizing: border-box;
 }
+
 .cs-topper {
     font-size: var(--topperFontSize);
     line-height: 1.2em;
@@ -57,8 +58,47 @@ body {
     width: 100%;
     max-width: 40.625rem;
     margin: 0;
-    color: var(--bodyTextColor);
+    color: red;
 }
+
+/* ===== Hero Section ===== */
+#hero-82 {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;           /* adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background picture container */
+#hero-82 .cs-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;                /* keeps it behind text */
+}
+
+/* Responsive image itself */
+#hero-82 .cs-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* fills container without distortion */
+  display: block;
+}
+
+/* Optional: make sure text stays readable */
+#hero-82 .cs-container {
+  position: relative;
+  padding: 2rem;
+  max-width: 900px;
+  color: #fff;                /* adjust to contrast with image */
+}
+
                           
 
 
@@ -70,7 +110,7 @@ body {
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #hero-82 {
+  #hero-82 {
         /* Centers button */
         text-align: center;
         /* 144px - 300px - leaving extra space for the navigation */
@@ -80,40 +120,8 @@ body {
         position: relative;
         z-index: 1;
     }
-    #hero-82 .cs-background {
-        width: 100%;
-        height: 100%;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -2;
-    }
-    #hero-82 .cs-background:before {
-        /* Overlay */
-        content: "";
-        width: 100%;
-        height: 100%;
-        background: black; /*this adds a color over pic*/
-        opacity: 0.6; /*higher # - more opaque it is*/
-        position: absolute;
-        display: block;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        /* prevents the cursor from interacting with it */
-        pointer-events: none;
-    }
-    #hero-82 .cs-background img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    #hero-82 .cs-container {
+
+  #hero-82 .cs-container {
         width: 100%;
         max-width: 67.5rem;
         margin: auto;
@@ -186,5 +194,7 @@ body {
     #hero-82 .cs-button-solid:hover:before {
         width: 100%;
     }
+
+
 }
-                                
+                            
