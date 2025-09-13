@@ -23,9 +23,19 @@
             text-align: left;
         }
 
-
+        /* Container fills width of the screen but keep a reasonable max size */
         #container {
-            padding: 1cm;
+          width: 100%;
+          max-width: 900px; /* adjust as needed */
+          height: auto;     /* height grows with content */
+          margin: 0 auto;   /* center on page */
+          display: block;
+        }
+
+        /* Make the SVG adapt to the container */
+        #container svg {
+          width: 100%;
+          height: auto;
         }
 
         h2 {
@@ -99,10 +109,10 @@
         }
 
         .rules {
-          border: 0.5rem outset pink;
-          outline: 0.5rem solid khaki;
-          box-shadow: 0 0 0 1.5rem skyblue;
-          border-radius: 12px;
+          border: 0.2rem outset rgba(156, 255, 156, 0.729);
+          outline: 0.2rem solid rgba(123, 175, 197, 0.725);
+          /* outline: 0.2rem solid rgba(0, 0, 0, 0.544); */
+          border-radius: 40px 40px 40px 40px;
 
           /* --- text --- */
           font-weight: bold;
@@ -111,7 +121,7 @@
 
           /* --- spacing --- */
           margin: 2rem auto;      /* center horizontally */
-          padding: 0.1px auto;
+          padding: 0px auto;
           outline-offset: 0.5rem;
 
           /* --- sizing --- */
@@ -139,14 +149,15 @@
             }
 
             #container {
-                padding: 10px;
-                width: 50%;
+              max-width: 100%;
+            }
+            #container text {
+              font-size: 0.6rem; /* smaller axis labels on phones */
             }
 
             .rules {
-              border-width: 0.3rem;
-              outline-width: 0.3rem;
-              box-shadow: 0 0 0 1rem skyblue;
+              border-width: 0.1rem;
+              outline-width: 0.1rem;
   }
         }
 
@@ -262,21 +273,23 @@
     <div id="container"></div>
 
     <script>
-        const margin = { top: 30, right: 110, bottom: 70, left: 120 };
-        width = 850,
-        height = 650;
-        // let width = document.getElementById('container').clientWidth - margin.left - margin.right;
-        // let height = 650 - margin.top - margin.bottom;
+      const margin = { top: 30, right: 110, bottom: 70, left: 120 };
 
-        // CREATE SVG & APPEND TO BODY
+      // Get container width dynamically
+      const container = document.getElementById("container");
+      const width = container.clientWidth - margin.left - margin.right;
+      const height = 650 - margin.top - margin.bottom; // or make this also relative
+
       const svg = d3.select("#container")
         .append("svg")
         .attr("class", "svg")
-        .attr("width", width + margin.right + margin.left)
+        .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`) // 👈 important
+        .attr("preserveAspectRatio", "xMidYMid meet")
         .append("g")
-        .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
 
         // CREATE TOOLTIP
         // TOOLTIP - REQUIRES 3 FUNCTIONS
