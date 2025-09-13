@@ -291,13 +291,13 @@
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
 
-        // CREATE TOOLTIP
-        // TOOLTIP - REQUIRES 3 FUNCTIONS
-        const tooltip = d3.select("#container")
-            .append("div")
-            .attr("class", "tooltip") //class for styling in CSS
-            .style("opacity", 0); //opacity set to 0 is invisible until used
-      
+      // CREATE TOOLTIP
+      // TOOLTIP - REQUIRES 3 FUNCTIONS
+      const tooltip = d3.select("#container")
+          .append("div")
+          .attr("class", "tooltip") //class for styling in CSS
+          .style("opacity", 0); //opacity set to 0 is invisible until used
+    
 
       // INITIALIZE X-AXIS
       const x = d3.scaleLinear()
