@@ -98,6 +98,28 @@
             border-radius: 7px;
         }
 
+        .rules {
+          border: 0.5rem outset pink;
+          outline: 0.5rem solid khaki;
+          box-shadow: 0 0 0 1.5rem skyblue;
+          border-radius: 12px;
+
+          /* --- text --- */
+          font-weight: bold;
+          font-family: sans-serif;
+          font-size: clamp(0.75rem, 2.5vw, 1rem); /* scales between 1–1.5rem */
+
+          /* --- spacing --- */
+          margin: 2rem auto;      /* center horizontally */
+          padding: 0.1px auto;
+          outline-offset: 0.5rem;
+
+          /* --- sizing --- */
+          width: 90%;             /* take up most of the screen */
+          max-width: 600px;       /* but don’t get too wide */
+          box-sizing: border-box; /* include borders in width */
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) { /*this is for when screen is small*/
             h2 {
@@ -120,6 +142,12 @@
                 padding: 10px;
                 width: 50%;
             }
+
+            .rules {
+              border-width: 0.3rem;
+              outline-width: 0.3rem;
+              box-shadow: 0 0 0 1rem skyblue;
+  }
         }
 
         @media (max-width: 480px) {
@@ -206,7 +234,7 @@
         and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must
         understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did
         what they could with the resources they had under the given circumstances.</p>
-        <p>Select a button below to view player stats</p>
+        <p class="rules">Select a button below to view player stats</p>
         <ul class="plays">
             <li><a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">AB - At Bats</a></li>
             <li><a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank">R - Runs</a></li>
