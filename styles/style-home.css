@@ -104,14 +104,17 @@ body {
         /* prevents the cursor from interacting with it */
         pointer-events: none;
     }
-    #hero-82 .cs-background img {
+
+    /*Commnted out the below portion because I added bootstrap links and img-fluid, h-100. It stretches the image high, but when you make the screen smaller, the image is very smushed  */
+
+    /* #hero-82 .cs-background img {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
+    } */
     
     #hero-82 .cs-container {
         width: 100%;
