@@ -41,7 +41,7 @@
         h2 {
             text-align: center;
             color: var(--primary);
-            margin-top: 5%;
+            margin-top: 7%;
             font-family: "Satisfy", cursive;
             /* font-weight: 700; */
             font-size: 2.5rem;
@@ -58,6 +58,7 @@
             list-style: none;
             text-align: center;
         }
+        
 
         .shrink-text {
             font-size: 0.9rem;
@@ -106,6 +107,7 @@
             background: rgb(189, 217, 249);
             color: black; 
             border-radius: 7px;
+            transform: translateX(10px) translateY(-10px); /*move tooltip 5px to the right on X-axis & 10px up on the Y-axis*/
         }
 
         .rules {
@@ -135,6 +137,7 @@
             h2 {
                 font-size: 1.5rem;
                 margin-top: 20%;
+                text-align: center;
             }
 
             p,
@@ -165,6 +168,7 @@
             h2 {
                 font-size: 1.8rem;
                 margin-left: 20%;
+                text-align: center;
             }
 
             .button-move {
@@ -195,7 +199,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex gap-3">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../index-about.html">Main</a>
+                    <a class="nav-link active" aria-current="page" href="../sections/about.html">Main</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="../people/index-people.html">Key Figures</a>
@@ -233,7 +237,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../index-sources.html">Sources</a>
+                    <a class="nav-link active" aria-current="page" href="../sections/sources.html">Sources</a>
                   </li>
               </div>
             </div>
@@ -241,19 +245,16 @@
       </div>
     <div class="summary">
         <h2>A Comparison of Negro League Playing Statistics</h2>
-        <p class="info">When the MLB decided in 2024 to incorporate Negro League statistics into the official record book, there was much debate
-        and skepticism. <span>The leagues, playing style, and season length were "different".</span> However, one must
-        understand that those differences came from the constraints imposed during the time of segregation. Negro Leagues did
-        what they could with the resources they had under the given circumstances.</p>
+        <p class="info">In 2024, MLB’s decision to incorporate Negro League statistics into the official record book was met with debate and skepticism. <span>The league, playing style, and season length were “different”.</span> However, those differences arose from the constraints imposed during segregation. The Negro Leagues did what they could with the resources they had under the circumstances.</p>
         <p class="rules">Select a button below to view player stats</p>
         <ul class="plays">
-            <li><a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">AB - At Bats</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank">R - Runs</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/hit" target="_blank">H - Hits</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/home-run" target="_blank">HR - Home Runs</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/runs-batted-in" target="_blank">RBI - Runs Batted In</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/stolen-base" target="_blank">SB - Stolen Bases</a></li>
-            <li><a href="https://www.mlb.com/glossary/standard-stats/batting-average" target="_blank">AVG - Batting Average</a></li>
+            <li>AB - <a href="https://www.mlb.com/glossary/standard-stats/at-bat" target="_blank">  At Bats</a></li>
+            <li>R - <a href="https://www.mlb.com/glossary/standard-stats/run" target="_blank"> Runs</a></li>
+            <li>H - <a href="https://www.mlb.com/glossary/standard-stats/hit" target="_blank"> Hits</a></li>
+            <li>HR - <a href="https://www.mlb.com/glossary/standard-stats/home-run" target="_blank"> Home Runs</a></li>
+            <li>RBI - <a href="https://www.mlb.com/glossary/standard-stats/runs-batted-in" target="_blank"> Runs Batted In</a></li>
+            <li>SB - <a href="https://www.mlb.com/glossary/standard-stats/stolen-base" target="_blank"> Stolen Bases</a></li>
+            <li>AVG - <a href="https://www.mlb.com/glossary/standard-stats/batting-average" target="_blank"> Batting Average</a></li>
         </ul>
         <p class="shrink-text">NOTE: Stats differed based on the website. These stats came from MLB.com through the history of the negro leagues
         section and were selected because it only utilized the statistics from their time during the negro leagues, excluding
@@ -291,13 +292,13 @@
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
 
-        // CREATE TOOLTIP
-        // TOOLTIP - REQUIRES 3 FUNCTIONS
-        const tooltip = d3.select("#container")
-            .append("div")
-            .attr("class", "tooltip") //class for styling in CSS
-            .style("opacity", 0); //opacity set to 0 is invisible until used
-      
+      // CREATE TOOLTIP
+      // TOOLTIP - REQUIRES 3 FUNCTIONS
+      const tooltip = d3.select("#container")
+          .append("div")
+          .attr("class", "tooltip") //class for styling in CSS
+          .style("opacity", 0); //opacity set to 0 is invisible until used
+    
 
       // INITIALIZE X-AXIS
       const x = d3.scaleLinear()
