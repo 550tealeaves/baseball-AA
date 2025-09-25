@@ -320,116 +320,110 @@
       // DEFINE FUNCTION UPDATE THAT CREATES/UPDATES THE CHART FOR GIVEN VARIABLE
       //THIS UPDATE IS CONNECTED TO THE BUTTONS ONCLICK"UPDATE" IN HTML
       function update(selectedStat) {
+  // load/parse data
+  d3.csv("../data/player-stats.csv").then(data => {
+    // coerce numeric fields to numbers (helps avoid NaN issues)
+    data.forEach(d => {
+      d.name = d.name;
+      d.ab  = +d.ab;
+      d.r   = +d.r;
+      d.h   = +d.h;
+      d.hr  = +d.hr;
+      d.rbi = +d.rbi;
+      d.sb  = +d.sb;
+      d.avg = +d.avg;
+    });
 
-        // LOAD/PARSE DATA
-        d3.csv("../data/player-stats.csv").then(data => {
+    // OPTIONAL: sort by chosen stat (descending)
+    data.sort((a, b) => d3.descending(+a[selectedStat], +b[selectedStat]));
 
-          console.log('data', data);
+    // update scales & axes
+    x.domain([0, d3.max(data, d => +d[selectedStat]) || 0]);
+    xAxis.transition().duration(800).call(d3.axisBottom(x)).selectAll("text").attr("fill","black");
 
-          //FORMAT THE DATA
-                data.forEach(d => {
-                  d.name = d.name;
-                  d.ab = d.ab;
-                  d.r = d.r;
-                  d.h = +d.h;
-                  d.hr = +d.hr;
-                  d.rbi = +d.rbi;
-                  d.sb = +d.sb;
-                  d.avg = +d.avg;
-                });
-          
-          //SORT THE DATA - descending  
-          data.sort((a, b) => b.name - a.name);//not working
-          //data.sort(d3.ascending) //doesn't work
+    y.domain(data.map(d => d.name));
+    yAxis.transition().duration(800).call(d3.axisLeft(y)).selectAll("text").attr("fill","black");
 
-          // X-AXIS
-          x.domain([0, d3.max(data, d => +d[selectedStat])])
-          xAxis
-            .transition()
-            .duration(1000)
-            .call(d3.axisBottom(x))
-            .selectAll("text")
-            .attr("fill", "black")
-            .attr("font-weight", 500)
+    // tooltip handlers (reuse yours)
+    const mouseover = function (event, d) {
+      tooltip.html(d.name + " - " + +d[selectedStat])
+             .style("opacity", 1)
+             .style("left", (event.pageX + 8) + "px")
+             .style("top", (event.pageY + 8) + "px");
+    };
+    const mousemove = function (event, d) {
+      tooltip.style("left", (event.pageX + 8) + "px")
+             .style("top", (event.pageY + 8) + "px");
+    };
+    const mouseout = function () {
+      tooltip.style("opacity", 0);
+    };
 
+    // LINES (enter-update-exit)
+    const lines = svg.selectAll("line.myLine")
+      .data(data, d => d.name);
 
-          // Y-AXIS
-          y.domain(data.map(d => d.name));
-          yAxis
-          .transition()
-          .duration(1000)
-          .call(d3.axisLeft(y))
-          .selectAll("text")
-          .attr("fill", "black");
+    const linesEnter = lines.enter()
+      .append("line")
+      .attr("class", "myLine")
+      // start at zero so they animate in
+      .attr("x1", x(0))
+      .attr("x2", x(0))
+      .attr("y1", d => y(d.name))
+      .attr("y2", d => y(d.name))
+      .attr("stroke", "#718a9b");
 
+    linesEnter.merge(lines)
+      .transition().duration(800)
+      .attr("x1", d => x(+d[selectedStat]))
+      .attr("x2", x(0))
+      .attr("y1", d => y(d.name))
+      .attr("y2", d => y(d.name));
 
-          //1ST TOOLTIP FUNCTION - MOUSEOVER
-          const mouseover = function (event, d) {  //listen for events being triggered on done elements
-            tooltip  //give things to the tooltip
-              .html(d.name + " - " + +d[selectedStat])//can add HTML features, like line break
-              .style("opacity", 1) //opacity set to 1 is visible - mouse hovers & you can see it
-              //Add absolute position of mouse b/c tooltip follows mouse
-              .style("left", (event.pageX + 8) + "px")//mouse x coordinate - higher the # further away tooltip moves
-              .style("top", (event.pageY + 8) + "px");//mouse y coordinate - higher the # further away tooltip moves
-          }
+    lines.exit().remove();
 
-          //2nd TOOLTIP FUNCTION - MOUSEMOVE
-          //Use event & d
-          const mousemove = function (event, d) {
-            tooltip
-              .style("left", (event.pageX + 8) + "px") //higher the # further away tooltip moves
-              .style("top", (event.pageY + 8) + "px"); //higher the # further away tooltip moves
-          }
+    // IMAGES (enter-update-exit) — key by name so D3 can match elements across updates
+    const iconSize = 18;
+    const imgs = svg.selectAll("image.baseball")
+      .data(data, d => d.name);
 
-          //3rd TOOLTIP FUNCTION - MOUSEOUT
-          //Use event & d
-          const mouseout = function (event, d) {
-            tooltip
-              .style("opacity", 0); //invisible when cursor leaves
-          }
+    const imgsEnter = imgs.enter()
+      .append("image")
+      .attr("class", "baseball")
+      // use 'href' (modern) — if your browser needs xlink, change to .attr('xlink:href', ...)
+      .attr("href", "../icons/baseball-svgrepo-com.svg")
+      .attr("width", iconSize)
+      .attr("height", iconSize)
+      // position entering icons at x(0) so they can slide to the new x
+      .attr("x", d => x(0) - iconSize / 2)
+      .attr("y", d => y(d.name) - iconSize / 2)
+      .attr("r", 12)
+      .style("opacity", 0);
 
+    // merge enter + update, attach events, then transition to new positions
+    imgsEnter.merge(imgs)
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemove)
+      .on("mouseout", mouseout)
+      .transition().duration(1000)
+      .style("opacity", 1)
+      .attr("x", d => x(+d[selectedStat]) - iconSize / 2)
+      .attr("y", d => y(d.name) - iconSize / 2);
 
-          // VARIABLE J: MAP DATA TO EXISTING CIRCLE
-          const j = svg.selectAll(".myLine")
-            .data(data)
-          // update lines
-          j
-            .enter()
-            .append("line")
-            .attr("class", "myLine")
-            .merge(j)
-            .transition()
-            .duration(1000)
-            .attr("x1", d => x(+d[selectedStat]))
-            .attr("x2", d => x(0))
-            .attr("y1", d => y(d.name))
-            .attr("y2", d => y(d.name))
-            .attr("stroke", "#718a9b");
+    // fade out removed icons and remove
+    imgs.exit()
+      .transition().duration(400)
+      .style("opacity", 0)
+      .remove();
 
+  }).catch(err => {
+    console.error("Error loading data:", err);
+  });
+}
 
-          // VARIABLE U: MAP DATA TO EXISTING CIRCLE
-          const u = svg.selectAll("circle")
-            .data(data)
-          // UPDATE CIRCLE
-          u
-            .enter()
-            .append("circle")
-            .merge(u)
-            .on("mouseover", mouseover) //NEW: .on() - this is event
-            .on("mousemove", mousemove) //tells it what to do 
-            .on("mouseout", mouseout)
-            .transition()
-            .duration(1000)
-            .attr("cx", d => x(+d[selectedStat]))
-            .attr("cy", d => y(d.name))
-            .attr("r", 6)
-            .style("fill", "#B23124")
-            .attr("stroke", "#222224");
-        })
-      }
+// initialize with a real numeric stat (don't call update('name'))
+update('ab');
 
-      // INITIALIZE PLOT
-      update('name')
     </script>
 </body>
 
