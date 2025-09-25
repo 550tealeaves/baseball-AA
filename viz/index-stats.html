@@ -408,23 +408,31 @@
 
 
           // VARIABLE U: MAP DATA TO EXISTING CIRCLE
-          const u = svg.selectAll("circle")
-            .data(data)
-          // UPDATE CIRCLE
-          u
-            .enter()
-            .append("circle")
+          // VARIABLE U: MAP DATA TO EXISTING ICONS
+          const iconSize = 20;
+
+          const u = svg.selectAll("image.baseball")
+            .data(data);
+
+          // ENTER
+          u.enter()
+            .append("image")
+            .attr("class", "baseball")
+            .attr("xlink:href", "../icons/baseball-svgrepo-com.svg")
+            .attr("width", iconSize)
+            .attr("height", iconSize)
             .merge(u)
-            .on("mouseover", mouseover) //NEW: .on() - this is event
-            .on("mousemove", mousemove) //tells it what to do 
+            .on("mouseover", mouseover)
+            .on("mousemove", mousemove)
             .on("mouseout", mouseout)
             .transition()
             .duration(1000)
-            .attr("cx", d => x(+d[selectedStat]))
-            .attr("cy", d => y(d.name))
-            .attr("r", 6)
-            .style("fill", "#B23124")
-            .attr("stroke", "#222224");
+            .attr("x", d => x(+d[selectedStat])) // center on x
+            .attr("y", d => y(d.name) - (iconSize / 2) - 1); // center on y
+
+          // EXIT
+          u.exit().remove();
+
         })
       }
 

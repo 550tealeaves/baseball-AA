@@ -408,32 +408,23 @@
 
 
           // VARIABLE U: MAP DATA TO EXISTING CIRCLE
-          // VARIABLE U: MAP DATA TO EXISTING ICONS
-          const iconSize = 18;
-
-          const u = svg.selectAll("image.baseball")
-            .data(data);
-
-          // ENTER
-          u.enter()
-            .append("image")
-            .attr("class", "baseball")
-            .attr("xlink:href", "../icons/baseball-svgrepo-com.svg")
-            .attr("width", iconSize)
-            .attr("height", iconSize)
+          const u = svg.selectAll("circle")
+            .data(data)
+          // UPDATE CIRCLE
+          u
+            .enter()
+            .append("circle")
             .merge(u)
-            .on("mouseover", mouseover)
-            .on("mousemove", mousemove)
+            .on("mouseover", mouseover) //NEW: .on() - this is event
+            .on("mousemove", mousemove) //tells it what to do 
             .on("mouseout", mouseout)
             .transition()
             .duration(1000)
-            //icons are not exactly matching the lines - problem is the X/Y
-            .attr("x", d => x(+d[selectedStat])) // center on x
-            .attr("y", d => y(d.name));         // center on y
-
-          // EXIT
-          u.exit().remove();
-
+            .attr("cx", d => x(+d[selectedStat]))
+            .attr("cy", d => y(d.name))
+            .attr("r", 6)
+            .style("fill", "#B23124")
+            .attr("stroke", "#222224");
         })
       }
 
