@@ -426,7 +426,7 @@
             .transition()
             .duration(1000)
             .attr("x", d => x(+d[selectedStat])) // center on x
-            .attr("y", d => y(d.name) - (iconSize / 2) - 1); // center on y
+            .attr("y", d => y(d.name) - (iconSize / 2) - 1); // adjust the last # (not /2) to move icon up/down y-axis
 
           // EXIT
           u.exit().remove();
