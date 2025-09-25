@@ -408,27 +408,32 @@
 
 
           // VARIABLE U: MAP DATA TO EXISTING CIRCLE
-          const iconSize = 18; // size of the Pokéball image in px
+          // VARIABLE U: MAP DATA TO EXISTING ICONS
+          const iconSize = 18;
 
-          const u = svg.selectAll("image.logos")
-          .data(data, d => d.name); // use name as key
+          const u = svg.selectAll("image.baseball")
+            .data(data);
 
-            u.enter()
+          // ENTER
+          u.enter()
             .append("image")
             .attr("class", "baseball")
             .attr("xlink:href", "../icons/baseball-svgrepo-com.svg")
             .attr("width", iconSize)
             .attr("height", iconSize)
-            .merge(u)  // UPDATE + ENTER
+            .merge(u)
             .on("mouseover", mouseover)
             .on("mousemove", mousemove)
             .on("mouseout", mouseout)
             .transition()
             .duration(1000)
-            .attr("x", d => x(+d[selectedStat]) - iconSize / 2)
-            .attr("y", d => y(d.name) - iconSize / 2);
+            //icons are not exactly matching the lines - problem is the X/Y
+            .attr("x", d => x(+d[selectedStat])) // center on x
+            .attr("y", d => y(d.name));         // center on y
 
-            u.exit().remove();
+          // EXIT
+          u.exit().remove();
+
         })
       }
 
