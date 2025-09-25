@@ -408,27 +408,23 @@
 
 
           // VARIABLE U: MAP DATA TO EXISTING CIRCLE
-          const iconSize = 18; // size of the Pokéball image in px
-
-          const u = svg.selectAll("image.logos")
-          .data(data, d => d.name); // use name as key
-
-            u.enter()
-            .append("image")
-            .attr("class", "baseball")
-            .attr("xlink:href", "../icons/baseball-svgrepo-com.svg")
-            .attr("width", iconSize)
-            .attr("height", iconSize)
-            .merge(u)  // UPDATE + ENTER
-            .on("mouseover", mouseover)
-            .on("mousemove", mousemove)
+          const u = svg.selectAll("circle")
+            .data(data)
+          // UPDATE CIRCLE
+          u
+            .enter()
+            .append("circle")
+            .merge(u)
+            .on("mouseover", mouseover) //NEW: .on() - this is event
+            .on("mousemove", mousemove) //tells it what to do 
             .on("mouseout", mouseout)
             .transition()
             .duration(1000)
-            .attr("x", d => x(+d[selectedStat]) - iconSize / 2)
-            .attr("y", d => y(d.name) - iconSize / 2);
-
-            u.exit().remove();
+            .attr("cx", d => x(+d[selectedStat]))
+            .attr("cy", d => y(d.name))
+            .attr("r", 6)
+            .style("fill", "#B23124")
+            .attr("stroke", "#222224");
         })
       }
 
