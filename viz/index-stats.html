@@ -408,17 +408,17 @@
 
           // VARIABLE U: MAP DATA TO EXISTING ICONS
           const iconSize = 20;
-
+          //Use icon to represent ball
           const u = svg.selectAll("image.baseball")
             .data(data);
 
           // ENTER
           u.enter()
-            .append("image")
-            .attr("class", "baseball")
-            .attr("xlink:href", "../icons/baseball-svgrepo-com.svg")
-            .attr("width", iconSize)
-            .attr("height", iconSize)
+            .append("image") //append image
+            .attr("class", "baseball") 
+            .attr("xlink:href", "../icons/baseball-svgrepo-com.svg") //link for image
+            .attr("width", iconSize) //add width for iconSize
+            .attr("height", iconSize) //add height for iconSize
             .merge(u)
             .on("mouseover", mouseover)
             .on("mousemove", mousemove)
